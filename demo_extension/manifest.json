@@ -1,0 +1,25 @@
+{
+  "name": "WordTube",
+  "version": "0.0.1-Snapshot",
+  "manifest_version": 3,
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "matches": ["<all_urls>"],
+      "resources": ["inject.js"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/watch*"],
+      "run_at": "document_idle",
+      "js": ["script.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

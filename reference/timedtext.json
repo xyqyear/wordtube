@@ -1,0 +1,1844 @@
+{
+  "wireMagic": "pb3",
+  "pens": [{}],
+  "wsWinStyles": [{}],
+  "wpWinPositions": [{}],
+  "events": [
+    {
+      "tStartMs": 1000,
+      "dDurationMs": 2701,
+      "segs": [
+        {
+          "utf8": "\"Breakfast of champions.\""
+        }
+      ]
+    },
+    {
+      "tStartMs": 3701,
+      "dDurationMs": 2429,
+      "segs": [
+        {
+          "utf8": "What’s the difference between eating less\nfood and eating no food?"
+        }
+      ]
+    },
+    {
+      "tStartMs": 6130,
+      "dDurationMs": 2440,
+      "segs": [
+        {
+          "utf8": "Well, Let’s look at two different situations."
+        }
+      ]
+    },
+    {
+      "tStartMs": 8570,
+      "dDurationMs": 5400,
+      "segs": [
+        {
+          "utf8": "…In 1944, a study called the Minnesota Starvation\nExperiment was conducted and was designed"
+        }
+      ]
+    },
+    {
+      "tStartMs": 13970,
+      "dDurationMs": 4370,
+      "segs": [
+        {
+          "utf8": "to understand the effects of caloric restriction\non the body in order to gain some knowledge"
+        }
+      ]
+    },
+    {
+      "tStartMs": 18340,
+      "dDurationMs": 3840,
+      "segs": [
+        {
+          "utf8": "that would help people starving in the aftermath\nof World War 2."
+        }
+      ]
+    },
+    {
+      "tStartMs": 22180,
+      "dDurationMs": 5220,
+      "segs": [
+        {
+          "utf8": "Thirty-six healthy men with an average height\nof 178cm (about five foot ten) and average"
+        }
+      ]
+    },
+    {
+      "tStartMs": 27400,
+      "dDurationMs": 4930,
+      "segs": [
+        {
+          "utf8": "weight of 69.3 kilograms (or 153 pounds) were\nselected."
+        }
+      ]
+    },
+    {
+      "tStartMs": 32330,
+      "dDurationMs": 3380,
+      "segs": [
+        {
+          "utf8": "For three months, they ate a diet of 3200\ncalories per day."
+        }
+      ]
+    },
+    {
+      "tStartMs": 35710,
+      "dDurationMs": 4189,
+      "segs": [
+        {
+          "utf8": "Then, for six months they ate only 1570 calories."
+        }
+      ]
+    },
+    {
+      "tStartMs": 39899,
+      "dDurationMs": 5491,
+      "segs": [
+        {
+          "utf8": "However, caloric intake was adjusted to attempt\nto have the men lose 1.1 kilograms per week,"
+        }
+      ]
+    },
+    {
+      "tStartMs": 45390,
+      "dDurationMs": 3270,
+      "segs": [
+        {
+          "utf8": "meaning some men got less than 1000 calories\nper day."
+        }
+      ]
+    },
+    {
+      "tStartMs": 48660,
+      "dDurationMs": 4780,
+      "segs": [
+        {
+          "utf8": "The foods given were high in carbohydrates-\nthings like potatoes, turnips, bread and macaroni."
+        }
+      ]
+    },
+    {
+      "tStartMs": 53440,
+      "dDurationMs": 2660,
+      "segs": [
+        {
+          "utf8": "Meat and dairy products were rarely given."
+        }
+      ]
+    },
+    {
+      "tStartMs": 56100,
+      "dDurationMs": 4479,
+      "segs": [
+        {
+          "utf8": "During the six months, the men experienced\nprofound physical and psychological changes."
+        }
+      ]
+    },
+    {
+      "tStartMs": 60579,
+      "dDurationMs": 2341,
+      "segs": [
+        {
+          "utf8": "Everyone complained that they were too cold."
+        }
+      ]
+    },
+    {
+      "tStartMs": 62920,
+      "dDurationMs": 4380,
+      "segs": [
+        {
+          "utf8": "One subject talked about having to wear a\nsweater in July on a sunny day."
+        }
+      ]
+    },
+    {
+      "tStartMs": 67300,
+      "dDurationMs": 3340,
+      "segs": [
+        {
+          "utf8": "The subjects’ body temperature dropped to\nan average of 95.8 degrees Fahrenheit (35.4"
+        }
+      ]
+    },
+    {
+      "tStartMs": 70640,
+      "dDurationMs": 1650,
+      "segs": [
+        {
+          "utf8": "degrees celsius)."
+        }
+      ]
+    },
+    {
+      "tStartMs": 72290,
+      "dDurationMs": 4090,
+      "segs": [
+        {
+          "utf8": "Physical endurance dropped by half, and strength\nshowed a 21 percent decrease."
+        }
+      ]
+    },
+    {
+      "tStartMs": 76380,
+      "dDurationMs": 4910,
+      "segs": [
+        {
+          "utf8": "The men experienced a complete lack of interest\nin everything except for food, which they"
+        }
+      ]
+    },
+    {
+      "tStartMs": 81290,
+      "dDurationMs": 1390,
+      "segs": [
+        {
+          "utf8": "were obsessed with."
+        }
+      ]
+    },
+    {
+      "tStartMs": 82680,
+      "dDurationMs": 2990,
+      "segs": [
+        {
+          "utf8": "They were plagued with constant and intense\nhunger."
+        }
+      ]
+    },
+    {
+      "tStartMs": 85670,
+      "dDurationMs": 4320,
+      "segs": [
+        {
+          "utf8": "There were several cases of neurotic behavior\nlike hoarding cookbooks and utensils."
+        }
+      ]
+    },
+    {
+      "tStartMs": 89990,
+      "dDurationMs": 4390,
+      "segs": [
+        {
+          "utf8": "Two participants had to be cut from the experiment\nbecause they admitted to stealing and eating"
+        }
+      ]
+    },
+    {
+      "tStartMs": 94380,
+      "dDurationMs": 5090,
+      "segs": [
+        {
+          "utf8": "several raw turnips and taking scraps of food\nfrom garbage cans."
+        }
+      ]
+    },
+    {
+      "tStartMs": 99470,
+      "dDurationMs": 4280,
+      "segs": [
+        {
+          "utf8": "At first, the participants were allowed to\nchew gum, until some of the men began chewing"
+        }
+      ]
+    },
+    {
+      "tStartMs": 103750,
+      "dDurationMs": 2640,
+      "segs": [
+        {
+          "utf8": "up to 40 packages a day."
+        }
+      ]
+    },
+    {
+      "tStartMs": 106390,
+      "dDurationMs": 5390,
+      "segs": [
+        {
+          "utf8": "Now compare all this to the case of Angus\nBarbieri, a Scottish man who in 1965 fasted"
+        }
+      ]
+    },
+    {
+      "tStartMs": 111780,
+      "dDurationMs": 2800,
+      "segs": [
+        {
+          "utf8": "for over 380 days straight."
+        }
+      ]
+    },
+    {
+      "tStartMs": 114580,
+      "dDurationMs": 4380,
+      "segs": [
+        {
+          "utf8": "That is he took in no food whatsoever -nothing\nbut water, black coffee and straight tea for"
+        }
+      ]
+    },
+    {
+      "tStartMs": 118960,
+      "dDurationMs": 1720,
+      "segs": [
+        {
+          "utf8": "just over a year."
+        }
+      ]
+    },
+    {
+      "tStartMs": 120680,
+      "dDurationMs": 3920,
+      "segs": [
+        {
+          "utf8": "He lost 276 pounds, going from from 456 pounds\nto 180."
+        }
+      ]
+    },
+    {
+      "tStartMs": 124600,
+      "dDurationMs": 6200,
+      "segs": [
+        {
+          "utf8": "A case report published by the Dundee University\nDepartment of Medicine in 1973 said “...the"
+        }
+      ]
+    },
+    {
+      "tStartMs": 130800,
+      "dDurationMs": 4700,
+      "segs": [
+        {
+          "utf8": "patient remained symptom-free, felt well and\nwalked about normally,” and “Prolonged"
+        }
+      ]
+    },
+    {
+      "tStartMs": 135500,
+      "dDurationMs": 2480,
+      "segs": [
+        {
+          "utf8": "fasting in this patient had no ill-effects.”"
+        }
+      ]
+    },
+    {
+      "tStartMs": 137980,
+      "dDurationMs": 4110,
+      "segs": [
+        {
+          "utf8": "There were no complaints of mind numbing hunger\nand he kept the weight off- for several years"
+        }
+      ]
+    },
+    {
+      "tStartMs": 142090,
+      "dDurationMs": 3600,
+      "segs": [
+        {
+          "utf8": "his weight stayed around 196 pounds."
+        }
+      ]
+    },
+    {
+      "tStartMs": 145690,
+      "dDurationMs": 3290,
+      "segs": [
+        {
+          "utf8": "This of course is not a perfect comparison,\nwith the case of Angus, there’s only one"
+        }
+      ]
+    },
+    {
+      "tStartMs": 148980,
+      "dDurationMs": 4810,
+      "segs": [
+        {
+          "utf8": "subject and his starting weight was drastically\nhigher compared to those in the Minnesota"
+        }
+      ]
+    },
+    {
+      "tStartMs": 153790,
+      "dDurationMs": 1000,
+      "segs": [
+        {
+          "utf8": "Experiment."
+        }
+      ]
+    },
+    {
+      "tStartMs": 154790,
+      "dDurationMs": 4710,
+      "segs": [
+        {
+          "utf8": "However, it does illustrate some very interesting\npoints about just how different of a physiological"
+        }
+      ]
+    },
+    {
+      "tStartMs": 159500,
+      "dDurationMs": 5280,
+      "segs": [
+        {
+          "utf8": "response you get from fasting (that is, eating\nnothing) compared to eating less, or caloric"
+        }
+      ]
+    },
+    {
+      "tStartMs": 164780,
+      "dDurationMs": 1200,
+      "segs": [
+        {
+          "utf8": "restriction."
+        }
+      ]
+    },
+    {
+      "tStartMs": 165980,
+      "dDurationMs": 5759,
+      "segs": [
+        {
+          "utf8": "Dr. Jason Fung, a Toronto physician specializing\nin kidney disease, and author of the Obesity"
+        }
+      ]
+    },
+    {
+      "tStartMs": 171739,
+      "dDurationMs": 5091,
+      "segs": [
+        {
+          "utf8": "Code, says that compared to fasting, Caloric\nReduction will result in: less weight loss,"
+        }
+      ]
+    },
+    {
+      "tStartMs": 176830,
+      "dDurationMs": 4000,
+      "segs": [
+        {
+          "utf8": "more lean mass loss (i.e. more muscle loss),\nand more hunger."
+        }
+      ]
+    },
+    {
+      "tStartMs": 180830,
+      "dDurationMs": 2750,
+      "segs": [
+        {
+          "utf8": "Let’s start by talking about hunger."
+        }
+      ]
+    },
+    {
+      "tStartMs": 183580,
+      "dDurationMs": 4250,
+      "segs": [
+        {
+          "utf8": "In Upton Sinclair’s 1911 book “The Fasting\nCure,” he writes about fasting as a means"
+        }
+      ]
+    },
+    {
+      "tStartMs": 187830,
+      "dDurationMs": 1380,
+      "segs": [
+        {
+          "utf8": "to improve health."
+        }
+      ]
+    },
+    {
+      "tStartMs": 189210,
+      "dDurationMs": 3730,
+      "segs": [
+        {
+          "utf8": "In describing his first couple attempts at\nfasting he writes “I was very hungry for"
+        }
+      ]
+    },
+    {
+      "tStartMs": 192940,
+      "dDurationMs": 4660,
+      "segs": [
+        {
+          "utf8": "the first day-the unwholesome, ravening sort\nof hunger that all dyspeptics know."
+        }
+      ]
+    },
+    {
+      "tStartMs": 197600,
+      "dDurationMs": 4200,
+      "segs": [
+        {
+          "utf8": "I had a little hunger the second morning,\nand thereafter, to my great astonishment,"
+        }
+      ]
+    },
+    {
+      "tStartMs": 201800,
+      "dDurationMs": 5329,
+      "segs": [
+        {
+          "utf8": "no hunger whatever-no more interest in food\nthan if I had ever known the taste of it.”"
+        }
+      ]
+    },
+    {
+      "tStartMs": 207129,
+      "dDurationMs": 4181,
+      "segs": [
+        {
+          "utf8": "Sinclair recommends to do quite long fasts\n- around 12 days or so."
+        }
+      ]
+    },
+    {
+      "tStartMs": 211310,
+      "dDurationMs": 3789,
+      "segs": [
+        {
+          "utf8": "In a section addressing concerns about fasting\nhe writes “Several people have asked me"
+        }
+      ]
+    },
+    {
+      "tStartMs": 215099,
+      "dDurationMs": 4420,
+      "segs": [
+        {
+          "utf8": "if it would not be better for them to eat\nvery lightly instead of fasting, or to content"
+        }
+      ]
+    },
+    {
+      "tStartMs": 219519,
+      "dDurationMs": 3731,
+      "segs": [
+        {
+          "utf8": "themselves with fasts of two or three days\nat frequent intervals."
+        }
+      ]
+    },
+    {
+      "tStartMs": 223250,
+      "dDurationMs": 4049,
+      "segs": [
+        {
+          "utf8": "My reply to that is that I find it very much\nharder to do that, because all the trouble"
+        }
+      ]
+    },
+    {
+      "tStartMs": 227299,
+      "dDurationMs": 2791,
+      "segs": [
+        {
+          "utf8": "in the fast occurs during the first two or\nthree days."
+        }
+      ]
+    },
+    {
+      "tStartMs": 230090,
+      "dDurationMs": 3520,
+      "segs": [
+        {
+          "utf8": "It is during those days that you are hungry.”"
+        }
+      ]
+    },
+    {
+      "tStartMs": 233610,
+      "dDurationMs": 4070,
+      "segs": [
+        {
+          "utf8": "Then he says: “...perhaps, it might be a\ngood thing to eat very lightly of fruit, instead"
+        }
+      ]
+    },
+    {
+      "tStartMs": 237680,
+      "dDurationMs": 4029,
+      "segs": [
+        {
+          "utf8": "of taking an absolute fast-the only trouble\nis that I cannot do it."
+        }
+      ]
+    },
+    {
+      "tStartMs": 241709,
+      "dDurationMs": 3941,
+      "segs": [
+        {
+          "utf8": "Again and again I have tried, but always with\nthe same result: the light meals are just"
+        }
+      ]
+    },
+    {
+      "tStartMs": 245650,
+      "dDurationMs": 2310,
+      "segs": [
+        {
+          "utf8": "enough to keep me ravenously hungry...”"
+        }
+      ]
+    },
+    {
+      "tStartMs": 247960,
+      "dDurationMs": 3260,
+      "segs": [
+        {
+          "utf8": "In the book he says you will know when you\nshould finish fasting, because your hunger"
+        }
+      ]
+    },
+    {
+      "tStartMs": 251220,
+      "dDurationMs": 1750,
+      "segs": [
+        {
+          "utf8": "will “return.”"
+        }
+      ]
+    },
+    {
+      "tStartMs": 252970,
+      "dDurationMs": 4500,
+      "segs": [
+        {
+          "utf8": "He quotes a letter he received from a 72 year\nold man saying “After fasting twenty-eight"
+        }
+      ]
+    },
+    {
+      "tStartMs": 257470,
+      "dDurationMs": 5000,
+      "segs": [
+        {
+          "utf8": "days I began to be hungry, and broke my fast\nwith a little grape juice, followed the next"
+        }
+      ]
+    },
+    {
+      "tStartMs": 262470,
+      "dDurationMs": 2590,
+      "segs": [
+        {
+          "utf8": "day with tomatoes, and later with vegetable\nsoup."
+        }
+      ]
+    },
+    {
+      "tStartMs": 265060,
+      "dDurationMs": 1000,
+      "segs": [
+        {
+          "utf8": "”"
+        }
+      ]
+    },
+    {
+      "tStartMs": 266060,
+      "dDurationMs": 3540,
+      "segs": [
+        {
+          "utf8": "He quotes several other letters he received\nfrom readers and this disappearance and reappearance"
+        }
+      ]
+    },
+    {
+      "tStartMs": 269600,
+      "dDurationMs": 2200,
+      "segs": [
+        {
+          "utf8": "of hunger is a common theme."
+        }
+      ]
+    },
+    {
+      "tStartMs": 271800,
+      "dDurationMs": 4209,
+      "segs": [
+        {
+          "utf8": "Everyone who wrote to him fasted for at least\n10 days, saying they only broke their fast"
+        }
+      ]
+    },
+    {
+      "tStartMs": 276009,
+      "dDurationMs": 2521,
+      "segs": [
+        {
+          "utf8": "when hunger “returned.”"
+        }
+      ]
+    },
+    {
+      "tStartMs": 278530,
+      "dDurationMs": 4560,
+      "segs": [
+        {
+          "utf8": "This phenomenon runs contrary to the idea\none would get hungrier and hungrier as long"
+        }
+      ]
+    },
+    {
+      "tStartMs": 283090,
+      "dDurationMs": 1549,
+      "segs": [
+        {
+          "utf8": "as they don’t eat."
+        }
+      ]
+    },
+    {
+      "tStartMs": 284639,
+      "dDurationMs": 3881,
+      "segs": [
+        {
+          "utf8": "However, most people have experienced for\nthemselves that this is not the case."
+        }
+      ]
+    },
+    {
+      "tStartMs": 288520,
+      "dDurationMs": 3580,
+      "segs": [
+        {
+          "utf8": "Some will find that they are not hungry at\nall in the morning or at least they are not"
+        }
+      ]
+    },
+    {
+      "tStartMs": 292100,
+      "dDurationMs": 2700,
+      "segs": [
+        {
+          "utf8": "as hungry as they are for lunch or dinner."
+        }
+      ]
+    },
+    {
+      "tStartMs": 294800,
+      "dDurationMs": 3670,
+      "segs": [
+        {
+          "utf8": "But unless you are eating in your sleep, the\nmorning is when you have gone the longest"
+        }
+      ]
+    },
+    {
+      "tStartMs": 298470,
+      "dDurationMs": 2150,
+      "segs": [
+        {
+          "utf8": "without food."
+        }
+      ]
+    },
+    {
+      "tStartMs": 300620,
+      "dDurationMs": 2660,
+      "segs": [
+        {
+          "utf8": "Some of this can be explained by the hormone\nGhrelin."
+        }
+      ]
+    },
+    {
+      "tStartMs": 303280,
+      "dDurationMs": 4550,
+      "segs": [
+        {
+          "utf8": "Ghrelin, known as the “hunger hormone”\nhas been found to increase appetite and weight"
+        }
+      ]
+    },
+    {
+      "tStartMs": 307830,
+      "dDurationMs": 1000,
+      "segs": [
+        {
+          "utf8": "gain."
+        }
+      ]
+    },
+    {
+      "tStartMs": 308830,
+      "dDurationMs": 4601,
+      "segs": [
+        {
+          "utf8": "A study at the Medical University of Vienna\nlooked at patients participating in a 33 hour"
+        }
+      ]
+    },
+    {
+      "tStartMs": 313431,
+      "dDurationMs": 1349,
+      "segs": [
+        {
+          "utf8": "fast."
+        }
+      ]
+    },
+    {
+      "tStartMs": 314780,
+      "dDurationMs": 2160,
+      "segs": [
+        {
+          "utf8": "Their ghrelin levels were checked every 20\nminutes."
+        }
+      ]
+    },
+    {
+      "tStartMs": 316940,
+      "dDurationMs": 3150,
+      "segs": [
+        {
+          "utf8": "Here’s how the levels changed over time."
+        }
+      ]
+    },
+    {
+      "tStartMs": 320090,
+      "dDurationMs": 4900,
+      "segs": [
+        {
+          "utf8": "What’s interesting is ghrelin is lowest\nat 9:00AM, which is when they have gone the"
+        }
+      ]
+    },
+    {
+      "tStartMs": 324990,
+      "dDurationMs": 1519,
+      "segs": [
+        {
+          "utf8": "longest without eating."
+        }
+      ]
+    },
+    {
+      "tStartMs": 326509,
+      "dDurationMs": 5851,
+      "segs": [
+        {
+          "utf8": "And, Ghrelin comes in waves and overall doesn’t\nrise during the period the subjects were fasting."
+        }
+      ]
+    },
+    {
+      "tStartMs": 332360,
+      "dDurationMs": 4600,
+      "segs": [
+        {
+          "utf8": "Then, As you can see, ghrelin rises in sync\nwith normal lunch and dinner times, as if"
+        }
+      ]
+    },
+    {
+      "tStartMs": 336960,
+      "dDurationMs": 2980,
+      "segs": [
+        {
+          "utf8": "the body had learned to expect food at that\ntime."
+        }
+      ]
+    },
+    {
+      "tStartMs": 339940,
+      "dDurationMs": 5370,
+      "segs": [
+        {
+          "utf8": "However, that ghrelin rise spontaneously decreases\nafter 2 hours without food."
+        }
+      ]
+    },
+    {
+      "tStartMs": 345310,
+      "dDurationMs": 4300,
+      "segs": [
+        {
+          "utf8": "I’ve experienced this kind of spontaneous\ndecrease in hunger myself many times when"
+        }
+      ]
+    },
+    {
+      "tStartMs": 349610,
+      "dDurationMs": 2010,
+      "segs": [
+        {
+          "utf8": "I was working as a consultant."
+        }
+      ]
+    },
+    {
+      "tStartMs": 351620,
+      "dDurationMs": 4780,
+      "segs": [
+        {
+          "utf8": "Lunch time would come and I would be hungry,\nbut I was too busy to eat so I just kept working."
+        }
+      ]
+    },
+    {
+      "tStartMs": 356400,
+      "dDurationMs": 4739,
+      "segs": [
+        {
+          "utf8": "Pretty quickly I forgot about eating and wasn’t\nparticularly hungry until dinner time."
+        }
+      ]
+    },
+    {
+      "tStartMs": 361139,
+      "dDurationMs": 3840,
+      "segs": [
+        {
+          "utf8": "This is very helpful to keep in mind if you’re\ndoing a long fast or even if you’re starting"
+        }
+      ]
+    },
+    {
+      "tStartMs": 364979,
+      "dDurationMs": 4440,
+      "segs": [
+        {
+          "utf8": "intermittent fasting - you’re going to get\nannoying waves of hunger, especially around"
+        }
+      ]
+    },
+    {
+      "tStartMs": 369419,
+      "dDurationMs": 1491,
+      "segs": [
+        {
+          "utf8": "the times that you usually eat."
+        }
+      ]
+    },
+    {
+      "tStartMs": 370910,
+      "dDurationMs": 5770,
+      "segs": [
+        {
+          "utf8": "But, it won’t get worse, the hunger will\nsimply go away if you are patient."
+        }
+      ]
+    },
+    {
+      "tStartMs": 376680,
+      "dDurationMs": 4269,
+      "segs": [
+        {
+          "utf8": "Another study concerning ghrelin was done\nat Aarhus University Hospital in Denmark and"
+        }
+      ]
+    },
+    {
+      "tStartMs": 380949,
+      "dDurationMs": 2641,
+      "segs": [
+        {
+          "utf8": "it shows what happens if you do a longer fast."
+        }
+      ]
+    },
+    {
+      "tStartMs": 383590,
+      "dDurationMs": 4120,
+      "segs": [
+        {
+          "utf8": "They looked at the ghrelin levels of 33 subjects\nwho fasted for 84 hours."
+        }
+      ]
+    },
+    {
+      "tStartMs": 387710,
+      "dDurationMs": 3420,
+      "segs": [
+        {
+          "utf8": "So, did they get increasingly hungrier throughout\nthe fasting period?"
+        }
+      ]
+    },
+    {
+      "tStartMs": 391130,
+      "dDurationMs": 1080,
+      "segs": [
+        {
+          "utf8": "Well, No."
+        }
+      ]
+    },
+    {
+      "tStartMs": 392210,
+      "dDurationMs": 5359,
+      "segs": [
+        {
+          "utf8": "Their ghrelin followed similar rhythms each\nday but actually decreased the longer they"
+        }
+      ]
+    },
+    {
+      "tStartMs": 397569,
+      "dDurationMs": 1000,
+      "segs": [
+        {
+          "utf8": "fasted."
+        }
+      ]
+    },
+    {
+      "tStartMs": 398569,
+      "dDurationMs": 4021,
+      "segs": [
+        {
+          "utf8": "Going longer without food actually made them\nless hungry."
+        }
+      ]
+    },
+    {
+      "tStartMs": 402590,
+      "dDurationMs": 3540,
+      "segs": [
+        {
+          "utf8": "This gives credence to what Upton Sinclair\nand his readers said about hunger disappearing"
+        }
+      ]
+    },
+    {
+      "tStartMs": 406130,
+      "dDurationMs": 1860,
+      "segs": [
+        {
+          "utf8": "after the first 3 days of fasting."
+        }
+      ]
+    },
+    {
+      "tStartMs": 407990,
+      "dDurationMs": 4829,
+      "segs": [
+        {
+          "utf8": "I’ve done a couple 5 and 6 day fasts in\nthe past myself and this was indeed the case."
+        }
+      ]
+    },
+    {
+      "tStartMs": 412819,
+      "dDurationMs": 5551,
+      "segs": [
+        {
+          "utf8": "Actually, I did a 4 day fast last week and\nagain the 4th day was when I had the least"
+        }
+      ]
+    },
+    {
+      "tStartMs": 418370,
+      "dDurationMs": 1380,
+      "segs": [
+        {
+          "utf8": "hunger."
+        }
+      ]
+    },
+    {
+      "tStartMs": 419750,
+      "dDurationMs": 5199,
+      "segs": [
+        {
+          "utf8": "Another thing that may be contributing to\nthis phenomenon is that you are entering ketosis."
+        }
+      ]
+    },
+    {
+      "tStartMs": 424949,
+      "dDurationMs": 4351,
+      "segs": [
+        {
+          "utf8": "Ketosis is a physiological state where your\nmetabolism switches to using primarily fat"
+        }
+      ]
+    },
+    {
+      "tStartMs": 429300,
+      "dDurationMs": 1000,
+      "segs": [
+        {
+          "utf8": "for energy."
+        }
+      ]
+    },
+    {
+      "tStartMs": 430300,
+      "dDurationMs": 4739,
+      "segs": [
+        {
+          "utf8": "For this reason ketosis is popular as a weight\nloss method, but it has many other benefits"
+        }
+      ]
+    },
+    {
+      "tStartMs": 435039,
+      "dDurationMs": 3811,
+      "segs": [
+        {
+          "utf8": "including better physical and mental efficiency."
+        }
+      ]
+    },
+    {
+      "tStartMs": 438850,
+      "dDurationMs": 3780,
+      "segs": [
+        {
+          "utf8": "Ketosis occurs when you restrict carbohydrates\ndown to 50 grams or less and you don’t eat"
+        }
+      ]
+    },
+    {
+      "tStartMs": 442630,
+      "dDurationMs": 1300,
+      "segs": [
+        {
+          "utf8": "too much protein."
+        }
+      ]
+    },
+    {
+      "tStartMs": 443930,
+      "dDurationMs": 4180,
+      "segs": [
+        {
+          "utf8": "Everyone’s body is a bit different so you\nmight have to eat even less carbohydrate or"
+        }
+      ]
+    },
+    {
+      "tStartMs": 448110,
+      "dDurationMs": 4480,
+      "segs": [
+        {
+          "utf8": "may have room for more, but the recommended\nratio of a ketogenic diet is to get 5% of"
+        }
+      ]
+    },
+    {
+      "tStartMs": 452590,
+      "dDurationMs": 5160,
+      "segs": [
+        {
+          "utf8": "your calories from carbs, 25% from protein\nand 75% from good fat."
+        }
+      ]
+    },
+    {
+      "tStartMs": 457750,
+      "dDurationMs": 5440,
+      "segs": [
+        {
+          "utf8": "A simpler way to enter ketosis is just don’t\neat anything for a long enough time."
+        }
+      ]
+    },
+    {
+      "tStartMs": 463190,
+      "dDurationMs": 4330,
+      "segs": [
+        {
+          "utf8": "This is one of the major points in the difference\nbetween fasting and caloric restriction."
+        }
+      ]
+    },
+    {
+      "tStartMs": 467520,
+      "dDurationMs": 3730,
+      "segs": [
+        {
+          "utf8": "The problem with the subjects in the Minnesota\nStarvation experiment was that they were eating"
+        }
+      ]
+    },
+    {
+      "tStartMs": 471250,
+      "dDurationMs": 5139,
+      "segs": [
+        {
+          "utf8": "just enough to keep them out ketosis and keep\ntheir metabolism primed for burning carbohydrate"
+        }
+      ]
+    },
+    {
+      "tStartMs": 476389,
+      "dDurationMs": 3960,
+      "segs": [
+        {
+          "utf8": "(glucose), so they couldn’t use their body\nfat for energy."
+        }
+      ]
+    },
+    {
+      "tStartMs": 480349,
+      "dDurationMs": 4091,
+      "segs": [
+        {
+          "utf8": "This explains a lot of things like why they\nwere losing their strength and were very sluggish"
+        }
+      ]
+    },
+    {
+      "tStartMs": 484440,
+      "dDurationMs": 1280,
+      "segs": [
+        {
+          "utf8": "and cold."
+        }
+      ]
+    },
+    {
+      "tStartMs": 485720,
+      "dDurationMs": 3919,
+      "segs": [
+        {
+          "utf8": "It also clears up why Upton Sinclair said\nfruit or light meals were just enough to keep"
+        }
+      ]
+    },
+    {
+      "tStartMs": 489639,
+      "dDurationMs": 5680,
+      "segs": [
+        {
+          "utf8": "him ravenously hungry and far weaker than\nif he had just eaten nothing."
+        }
+      ]
+    },
+    {
+      "tStartMs": 495319,
+      "dDurationMs": 4401,
+      "segs": [
+        {
+          "utf8": "As I explained in my last video, insulin is\nnecessary for glucose to get into the cell"
+        }
+      ]
+    },
+    {
+      "tStartMs": 499720,
+      "dDurationMs": 1590,
+      "segs": [
+        {
+          "utf8": "to be used for energy."
+        }
+      ]
+    },
+    {
+      "tStartMs": 501310,
+      "dDurationMs": 4729,
+      "segs": [
+        {
+          "utf8": "When you eat carbohydrates, the pancreas secretes\ninsulin to deal with it and too much insulin"
+        }
+      ]
+    },
+    {
+      "tStartMs": 506039,
+      "dDurationMs": 5671,
+      "segs": [
+        {
+          "utf8": "hampers the action of something called hormone\nsensitive lipase which is necessary to mobilize"
+        }
+      ]
+    },
+    {
+      "tStartMs": 511710,
+      "dDurationMs": 2110,
+      "segs": [
+        {
+          "utf8": "fat and use it for fuel."
+        }
+      ]
+    },
+    {
+      "tStartMs": 513820,
+      "dDurationMs": 5240,
+      "segs": [
+        {
+          "utf8": "Though, keep in mind that grains or refined\ncarbohydrates will provoke a much higher insulin"
+        }
+      ]
+    },
+    {
+      "tStartMs": 519060,
+      "dDurationMs": 3440,
+      "segs": [
+        {
+          "utf8": "response than say green vegetables."
+        }
+      ]
+    },
+    {
+      "tStartMs": 522500,
+      "dDurationMs": 4820,
+      "segs": [
+        {
+          "utf8": "Now because the body is having a hard time\nusing its fat for fuel, it will do a couple"
+        }
+      ]
+    },
+    {
+      "tStartMs": 527320,
+      "dDurationMs": 5000,
+      "segs": [
+        {
+          "utf8": "things: One, it will simply slow down metabolism\nto preserve energy."
+        }
+      ]
+    },
+    {
+      "tStartMs": 532320,
+      "dDurationMs": 5260,
+      "segs": [
+        {
+          "utf8": "In the Minnesota Starvation experiment, the\nsubjects metabolism dropped by 40 percent."
+        }
+      ]
+    },
+    {
+      "tStartMs": 537580,
+      "dDurationMs": 4290,
+      "segs": [
+        {
+          "utf8": "Their bodies didn’t have access to its stored\nenergy, and their restricted calorie diets"
+        }
+      ]
+    },
+    {
+      "tStartMs": 541870,
+      "dDurationMs": 5000,
+      "segs": [
+        {
+          "utf8": "don’t provide much fuel so there’s no\nchoice but to slow down the metabolism."
+        }
+      ]
+    },
+    {
+      "tStartMs": 546870,
+      "dDurationMs": 4820,
+      "segs": [
+        {
+          "utf8": "Ironically, in the case of fasting, as Jason\nFung points out - metabolism actually goes"
+        }
+      ]
+    },
+    {
+      "tStartMs": 551690,
+      "dDurationMs": 1000,
+      "segs": [
+        {
+          "utf8": "up."
+        }
+      ]
+    },
+    {
+      "tStartMs": 552690,
+      "dDurationMs": 4320,
+      "segs": [
+        {
+          "utf8": "\"If you don't do anything about your insulin\nand just reduce your calories, your metabolism"
+        }
+      ]
+    },
+    {
+      "tStartMs": 557010,
+      "dDurationMs": 1000,
+      "segs": [
+        {
+          "utf8": "goes down."
+        }
+      ]
+    },
+    {
+      "tStartMs": 558010,
+      "dDurationMs": 1970,
+      "segs": [
+        {
+          "utf8": "But what happens during fasting?"
+        }
+      ]
+    },
+    {
+      "tStartMs": 559980,
+      "dDurationMs": 4650,
+      "segs": [
+        {
+          "utf8": "Well, here's a study of 4 consecutive days\nof fasting."
+        }
+      ]
+    },
+    {
+      "tStartMs": 564630,
+      "dDurationMs": 5990,
+      "segs": [
+        {
+          "utf8": "What happens to your REE - this is this middle\nline here, that's the resting energy expenditure."
+        }
+      ]
+    },
+    {
+      "tStartMs": 570620,
+      "dDurationMs": 4220,
+      "segs": [
+        {
+          "utf8": "It doesn't go down, it goes up."
+        }
+      ]
+    },
+    {
+      "tStartMs": 574840,
+      "dDurationMs": 4090,
+      "segs": [
+        {
+          "utf8": "You're burning more energy than you did.\""
+        }
+      ]
+    },
+    {
+      "tStartMs": 578930,
+      "dDurationMs": 4750,
+      "segs": [
+        {
+          "utf8": "The other thing the body will do when it can’t\nuse fat for fuel is break down muscle into"
+        }
+      ]
+    },
+    {
+      "tStartMs": 583680,
+      "dDurationMs": 3560,
+      "segs": [
+        {
+          "utf8": "glucose through a process called gluconeogenesis."
+        }
+      ]
+    },
+    {
+      "tStartMs": 587240,
+      "dDurationMs": 3590,
+      "segs": [
+        {
+          "utf8": "The body doesn’t want do this too much because\nit’s not very smart to completely eat through"
+        }
+      ]
+    },
+    {
+      "tStartMs": 590830,
+      "dDurationMs": 5350,
+      "segs": [
+        {
+          "utf8": "something as important as muscle, but when\nit can’t access its own stored energy it’s"
+        }
+      ]
+    },
+    {
+      "tStartMs": 596180,
+      "dDurationMs": 2260,
+      "segs": [
+        {
+          "utf8": "more likely to resort to this."
+        }
+      ]
+    },
+    {
+      "tStartMs": 598440,
+      "dDurationMs": 4170,
+      "segs": [
+        {
+          "utf8": "This is why you’ll experience more muscle\nloss on caloric restriction than if you ate"
+        }
+      ]
+    },
+    {
+      "tStartMs": 602610,
+      "dDurationMs": 1840,
+      "segs": [
+        {
+          "utf8": "nothing."
+        }
+      ]
+    },
+    {
+      "tStartMs": 604450,
+      "dDurationMs": 3770,
+      "segs": [
+        {
+          "utf8": "When you are fasting, Human Growth Hormone\nis released."
+        }
+      ]
+    },
+    {
+      "tStartMs": 608220,
+      "dDurationMs": 4480,
+      "segs": [
+        {
+          "utf8": "As the name implies, Human Growth Hormone\nis an anabolic hormone - a hormone conducive"
+        }
+      ]
+    },
+    {
+      "tStartMs": 612700,
+      "dDurationMs": 1600,
+      "segs": [
+        {
+          "utf8": "to growth."
+        }
+      ]
+    },
+    {
+      "tStartMs": 614300,
+      "dDurationMs": 4510,
+      "segs": [
+        {
+          "utf8": "In Leningher’s Principles of Biochemistry\ntextbook they give the example of how injecting"
+        }
+      ]
+    },
+    {
+      "tStartMs": 618810,
+      "dDurationMs": 5320,
+      "segs": [
+        {
+          "utf8": "the human growth hormone gene into a mouse\nmakes it unusually large."
+        }
+      ]
+    },
+    {
+      "tStartMs": 624130,
+      "dDurationMs": 4829,
+      "segs": [
+        {
+          "utf8": "As explained in Guyton’s Textbook of Medical\nPhysiology: \"...growth hormone also mobilizes"
+        }
+      ]
+    },
+    {
+      "tStartMs": 628959,
+      "dDurationMs": 4301,
+      "segs": [
+        {
+          "utf8": "large quantities of free fatty acids from\nthe adipose tissue, and these in turn are"
+        }
+      ]
+    },
+    {
+      "tStartMs": 633260,
+      "dDurationMs": 5389,
+      "segs": [
+        {
+          "utf8": "used to supply most of the energy for the\nbody cells, thus acting as a potent \"protein"
+        }
+      ]
+    },
+    {
+      "tStartMs": 638649,
+      "dDurationMs": 1000,
+      "segs": [
+        {
+          "utf8": "sparer.\""
+        }
+      ]
+    },
+    {
+      "tStartMs": 639649,
+      "dDurationMs": 5161,
+      "segs": [
+        {
+          "utf8": "\"That is human growth hormone is protecting\nyour muscles from breaking down."
+        }
+      ]
+    },
+    {
+      "tStartMs": 644810,
+      "dDurationMs": 4540,
+      "segs": [
+        {
+          "utf8": "The study I referred to earlier about subjects\nundergoing an 84 hour fast shows that growth"
+        }
+      ]
+    },
+    {
+      "tStartMs": 649350,
+      "dDurationMs": 6190,
+      "segs": [
+        {
+          "utf8": "hormone rises significantly after the second\nday of fasting."
+        }
+      ]
+    },
+    {
+      "tStartMs": 655540,
+      "dDurationMs": 4299,
+      "segs": [
+        {
+          "utf8": "As mentioned earlier, you should enter ketosis\nsometime within the first 3 days or so of"
+        }
+      ]
+    },
+    {
+      "tStartMs": 659839,
+      "dDurationMs": 4250,
+      "segs": [
+        {
+          "utf8": "fasting, and it depends on how much you are\nmoving around and what your diet was like"
+        }
+      ]
+    },
+    {
+      "tStartMs": 664089,
+      "dDurationMs": 1781,
+      "segs": [
+        {
+          "utf8": "before starting the fast."
+        }
+      ]
+    },
+    {
+      "tStartMs": 665870,
+      "dDurationMs": 5100,
+      "segs": [
+        {
+          "utf8": "The state of ketosis is a great indicator\nthat your body is making good use of its stored"
+        }
+      ]
+    },
+    {
+      "tStartMs": 670970,
+      "dDurationMs": 2109,
+      "segs": [
+        {
+          "utf8": "body fat for energy."
+        }
+      ]
+    },
+    {
+      "tStartMs": 673079,
+      "dDurationMs": 4951,
+      "segs": [
+        {
+          "utf8": "In Tim Ferriss’ book “Tools of Titans,”\nTim talks about his first clinically supervised"
+        }
+      ]
+    },
+    {
+      "tStartMs": 678030,
+      "dDurationMs": 1570,
+      "segs": [
+        {
+          "utf8": "7 day fast."
+        }
+      ]
+    },
+    {
+      "tStartMs": 679600,
+      "dDurationMs": 5310,
+      "segs": [
+        {
+          "utf8": "For some sort of liability reasons, he wasn’t\nallowed to exercise or leave the facility."
+        }
+      ]
+    },
+    {
+      "tStartMs": 684910,
+      "dDurationMs": 4160,
+      "segs": [
+        {
+          "utf8": "Considering exercise is a potent stimulator\nof human growth hormone and will help deplete"
+        }
+      ]
+    },
+    {
+      "tStartMs": 689070,
+      "dDurationMs": 4560,
+      "segs": [
+        {
+          "utf8": "glucose stores, not getting any exercise is\na great way to prevent yourself from getting"
+        }
+      ]
+    },
+    {
+      "tStartMs": 693630,
+      "dDurationMs": 2220,
+      "segs": [
+        {
+          "utf8": "into ketosis during a fast."
+        }
+      ]
+    },
+    {
+      "tStartMs": 695850,
+      "dDurationMs": 2549,
+      "segs": [
+        {
+          "utf8": "It’s also a great way to lose muscle."
+        }
+      ]
+    },
+    {
+      "tStartMs": 698399,
+      "dDurationMs": 5291,
+      "segs": [
+        {
+          "utf8": "Tim says he lost 12 pounds of muscle during\nthe overly restrictive clinically supervised"
+        }
+      ]
+    },
+    {
+      "tStartMs": 703690,
+      "dDurationMs": 1190,
+      "segs": [
+        {
+          "utf8": "7 day fast."
+        }
+      ]
+    },
+    {
+      "tStartMs": 704880,
+      "dDurationMs": 4630,
+      "segs": [
+        {
+          "utf8": "But, when following a protocol designed to\nget him into ketosis as soon as possible - involving"
+        }
+      ]
+    },
+    {
+      "tStartMs": 709510,
+      "dDurationMs": 5519,
+      "segs": [
+        {
+          "utf8": "things like 4 hours of brisk walking, he did\na ten day fast and apparently lost zero muscle"
+        }
+      ]
+    },
+    {
+      "tStartMs": 715029,
+      "dDurationMs": 1651,
+      "segs": [
+        {
+          "utf8": "mass."
+        }
+      ]
+    },
+    {
+      "tStartMs": 716680,
+      "dDurationMs": 3709,
+      "segs": [
+        {
+          "utf8": "One last factor in Ketosis preserving muscle\nis leucine."
+        }
+      ]
+    },
+    {
+      "tStartMs": 720389,
+      "dDurationMs": 3601,
+      "segs": [
+        {
+          "utf8": "When you're in ketosis, you have a higher\nfasting blood leucine level."
+        }
+      ]
+    },
+    {
+      "tStartMs": 723990,
+      "dDurationMs": 4920,
+      "segs": [
+        {
+          "utf8": "And leucine is a key branch chain amino acid\nthat has an anabolic effect on the body so"
+        }
+      ]
+    },
+    {
+      "tStartMs": 728910,
+      "dDurationMs": 2060,
+      "segs": [
+        {
+          "utf8": "it preserves lean body mass."
+        }
+      ]
+    },
+    {
+      "tStartMs": 730970,
+      "dDurationMs": 4510,
+      "segs": [
+        {
+          "utf8": "A lot of people interested in building muscle\nmay be worried that fasting or a ketogenic"
+        }
+      ]
+    },
+    {
+      "tStartMs": 735480,
+      "dDurationMs": 4380,
+      "segs": [
+        {
+          "utf8": "diet wouldn’t work for them because insulin\nand therefore carbohydrates are necessary"
+        }
+      ]
+    },
+    {
+      "tStartMs": 739860,
+      "dDurationMs": 6130,
+      "segs": [
+        {
+          "utf8": "for protein synthesis (i.e. muscle growth),\nbut actually this leucine fills that role"
+        }
+      ]
+    },
+    {
+      "tStartMs": 745990,
+      "dDurationMs": 2210,
+      "segs": [
+        {
+          "utf8": "and is a good trigger for protein synthesis."
+        }
+      ]
+    },
+    {
+      "tStartMs": 748200,
+      "dDurationMs": 5851,
+      "segs": [
+        {
+          "utf8": "So, just to sum all this up: compared to a\nconventional calorie restricted diet, fasting"
+        }
+      ]
+    },
+    {
+      "tStartMs": 754051,
+      "dDurationMs": 5569,
+      "segs": [
+        {
+          "utf8": "means you lose more weight in the form of\nfat, you keep more muscle, you have more energy,"
+        }
+      ]
+    },
+    {
+      "tStartMs": 759620,
+      "dDurationMs": 4521,
+      "segs": [
+        {
+          "utf8": "and you are less hungry . If proper weight\nloss is your goal, it might be better to eat"
+        }
+      ]
+    },
+    {
+      "tStartMs": 764141,
+      "dDurationMs": 3998,
+      "segs": [
+        {
+          "utf8": "nothing at all rather than eating a conventional\nlow calorie diet."
+        }
+      ]
+    }
+  ]
+}
