@@ -1,0 +1,114 @@
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(2, 2, 2);
+}
+
+#app {
+  height: 500px;
+  width: 400px;
+  margin: 10px;
+  padding: 2px;
+
+  border-style: dashed;
+  border-width: 1px;
+  border-color: black;
+
+  background-color: #f3f1f5;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.wordlist {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.list-item {
+  position: relative;
+  text-decoration: none;
+  border-radius: 8px;
+  background-color: #f0d9ff;
+  display: block;
+  margin-top: 5px;
+  height: 40px;
+}
+
+.word {
+  position: absolute;
+  top: 50%;
+  margin-left: 8px;
+  transform: translate(0, -50%);
+  color: black;
+}
+
+.buttons {
+  position: absolute;
+  right: 0%;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.button {
+  margin-right: 4px;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  height: 26px;
+  width: 50px;
+}
+
+.known-button {
+  float: right;
+}
+
+.unknown-button {
+  float: right;
+}
+
+.list-item:hover {
+  background-color: #e7e7e7;
+}
+
+.topnav {
+  border-radius: 8px;
+  background-color: #7f7c82;
+  overflow: hidden;
+  display: flex;
+}
+
+.topnav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px;
+  flex: 1;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #c9d6df;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #bfa2db;
+  color: white;
+}

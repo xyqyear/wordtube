@@ -1,6 +1,6 @@
 {
   "name": "WordTube",
-  "version": "0.0.1-Snapshot",
+  "version": "0.0.1",
   "manifest_version": 3,
   "permissions": ["storage"],
   "background": {
