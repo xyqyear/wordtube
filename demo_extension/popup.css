@@ -35,6 +35,31 @@
   flex-direction: column;
 }
 
+.topnav {
+  border-radius: 8px;
+  background-color: #7f7c82;
+  overflow: hidden;
+  display: flex;
+}
+
+.topnav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px;
+  flex: 1;
+  text-decoration: none;
+  font-size: 17px;
+  color: white;
+}
+
+.topnav a:hover {
+  background-color: #8d769e;
+}
+
+.topnav a.active {
+  background-color: #bfa2db;
+}
+
 .wordlist {
   height: 100%;
   overflow-y: auto;
@@ -44,7 +69,7 @@
   position: relative;
   text-decoration: none;
   border-radius: 8px;
-  background-color: #f0d9ff;
+  background-color: white;
   display: block;
   margin-top: 5px;
   height: 40px;
@@ -84,31 +109,9 @@
 }
 
 .list-item:hover {
-  background-color: #e7e7e7;
+  background-color: #f0d9ff;
 }
 
-.topnav {
-  border-radius: 8px;
-  background-color: #7f7c82;
-  overflow: hidden;
-  display: flex;
-}
-
-.topnav a {
-  color: #f2f2f2;
-  text-align: center;
-  padding: 10px;
-  flex: 1;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #c9d6df;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #bfa2db;
-  color: white;
+#templates {
+  display: none;
 }
