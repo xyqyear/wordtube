@@ -23,6 +23,7 @@ async function getTranscriptJson() {
     tracksWithoutASR.length > 0 ? tracksWithoutASR : captionTracks;
 
   if (captionTracks.length > 0) {
+    console.log(captionTracks[0].baseUrl);
     response = await fetch(captionTracks[0].baseUrl + "&fmt=json3");
     return await response.json();
   }
@@ -33,7 +34,13 @@ async function getTranscriptJson() {
 getTranscriptJson().then((transcriptJson) => {
   document.dispatchEvent(
     new CustomEvent("gotTranscript", {
-      detail: transcriptJson,
+      detail: {
+        caption: transcriptJson,
+        title:
+          window.ytplayer.config.args.raw_player_response.videoDetails.title,
+        author:
+          window.ytplayer.config.args.raw_player_response.videoDetails.author,
+      },
     })
   );
 });

@@ -2,14 +2,14 @@
   "name": "WordTube",
   "version": "0.0.1",
   "manifest_version": 3,
-  "permissions": ["storage"],
+  "permissions": ["storage", "unlimitedStorage"],
   "background": {
     "service_worker": "background.js"
   },
   "web_accessible_resources": [
     {
       "matches": ["<all_urls>"],
-      "resources": ["inject.js"]
+      "resources": ["*"]
     }
   ],
   "content_scripts": [
@@ -20,6 +20,6 @@
     }
   ],
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup/index.html"
   }
 }

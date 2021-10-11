@@ -1,8 +1,9 @@
-const wordlistInbox = ["kekw", "lul", "wtf"];
-const wordlistUnknown = ["really", "complicated", "words"];
-const wordlistKnown = ["what", "is", "this", "shit"];
+import { db } from "./utils/db.js";
 
-const wordlist_item_template = document.querySelector("#templates");
+const wordlist_item_template = document.querySelector(
+  "#wordlist-item-template"
+);
+
 // change the navigation bar
 // not navigating to the actual page
 // return false if dont need to navigate
@@ -20,7 +21,7 @@ function populateWordlist(wordArray) {
   let wordlist = document.getElementById("wordlist");
   wordlist.innerHTML = "";
 
-  for (word of wordArray) {
+  for (const word of wordArray) {
     let node = wordlist_item_template.cloneNode(true);
     node.id = "";
     node.getElementsByClassName("word")[0].innerText = word;
@@ -29,26 +30,25 @@ function populateWordlist(wordArray) {
 }
 
 // navigation bar bindings
-document.getElementById("inbox-nav").addEventListener("click", (e) => {
+document.getElementById("inbox-nav").addEventListener("click", async (e) => {
   if (!navigate(e)) {
     return;
   }
-  populateWordlist(wordlistInbox);
+  populateWordlist(await db.getInboxList());
 });
 
-document.getElementById("unknown-nav").addEventListener("click", (e) => {
+document.getElementById("unknown-nav").addEventListener("click", async (e) => {
   if (!navigate(e)) {
     return;
   }
-  populateWordlist(wordlistUnknown);
+  populateWordlist(await db.getUnknownList());
 });
 
-document.getElementById("known-nav").addEventListener("click", (e) => {
+document.getElementById("known-nav").addEventListener("click", async (e) => {
   if (!navigate(e)) {
     return;
   }
-
-  populateWordlist(wordlistKnown);
+  populateWordlist(await db.getKnownList());
 });
 
-populateWordlist(wordlistInbox);
+populateWordlist(await db.getInboxList());

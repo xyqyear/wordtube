@@ -1,3 +1,4 @@
+/* !scrollbar */
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
@@ -22,43 +23,46 @@
 #app {
   height: 500px;
   width: 400px;
+
   margin: 10px;
   padding: 2px;
-
   border-style: dashed;
   border-width: 1px;
   border-color: black;
 
   background-color: #f3f1f5;
-
   display: flex;
   flex-direction: column;
 }
+
+/* !navigation bar */
 
 .topnav {
   border-radius: 8px;
   background-color: #7f7c82;
   overflow: hidden;
   display: flex;
+  cursor: pointer;
 }
 
-.topnav a {
+.topnav div {
   color: #f2f2f2;
   text-align: center;
   padding: 10px;
   flex: 1;
-  text-decoration: none;
   font-size: 17px;
   color: white;
 }
 
-.topnav a:hover {
+.topnav div:hover {
   background-color: #8d769e;
 }
 
-.topnav a.active {
+.topnav div.active {
   background-color: #bfa2db;
 }
+
+/* !the wordlist */
 
 .wordlist {
   height: 100%;
@@ -66,6 +70,7 @@
 }
 
 .list-item {
+  cursor: pointer;
   position: relative;
   text-decoration: none;
   border-radius: 8px;
@@ -73,6 +78,14 @@
   display: block;
   margin-top: 5px;
   height: 40px;
+}
+
+.list-item:hover {
+  background-color: #f0d9ff;
+}
+
+.list-item:active {
+  background-color: #ebccff;
 }
 
 .word {
@@ -83,35 +96,56 @@
   color: black;
 }
 
+/* !buttons in wordlist */
+
 .buttons {
-  position: absolute;
   right: 0%;
+}
+
+.button {
+  border-radius: 5px;
+  border-width: 1px;
+  height: 26px;
+  width: 50px;
+  color: black;
+}
+
+.unknown-button {
+  margin-right: 4px;
+  float: right;
+  background-color: #ffd0d0;
+}
+
+.unknown-button:hover {
+  background-color: #ffc4c4;
+}
+
+.known-button {
+  margin-right: 4px;
+  float: right;
+  background-color: #d8ffb1;
+}
+
+.known-button:hover {
+  background-color: #ccff99;
+}
+
+/* !misc styles */
+
+.hidden {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.horizontal-center {
+  position: absolute;
   top: 50%;
   transform: translate(0, -50%);
 }
 
-.button {
-  margin-right: 4px;
-  border-radius: 5px;
-  border-width: 1px;
-  border-color: black;
-  border-style: solid;
-  height: 26px;
-  width: 50px;
-}
-
-.known-button {
-  float: right;
-}
-
-.unknown-button {
-  float: right;
-}
-
-.list-item:hover {
-  background-color: #f0d9ff;
-}
-
-#templates {
-  display: none;
+.center-child {
+  justify-content: center;
 }
