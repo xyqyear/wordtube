@@ -50,8 +50,7 @@ class DB {
 
   async _add(key, ...value) {
     let oldValue = (await chromeDB.get(key))[key] || [];
-    oldValue.concat(value);
-    await chromeDB.set({ key: value });
+    await chromeDB.set({ [key]: oldValue.concat(value) });
   }
 
   async _remove(key, ...value) {
@@ -62,7 +61,7 @@ class DB {
         oldValue.splice(index, 1);
       }
     }
-    await chromeDB.set({ key: oldValue });
+    await chromeDB.set({ [key]: oldValue });
   }
 
   // await getInboxList() => ["a", "b", ...]
