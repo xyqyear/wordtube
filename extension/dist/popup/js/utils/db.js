@@ -23,22 +23,24 @@ class chromeDBProto {
 
 const chromeDB = new chromeDBProto();
 
-class Word {
-  constructor(word, timestamp, context, source) {
+class Stem {
+  constructor(stem, word, source, timestamp) {
+    this.stem = stem;
     this.word = word;
-    this.timestamp = timestamp;
-    this.context = context;
     this.source = source;
+    this.timestamp = timestamp;
   }
 }
 
 class DB {
   /*
   Version 1 specification:
-  "wordlist.inbox": ["word1", "word2", ...]
-  "wordlist.unknown": ["word3", "word4", ...]
-  "wordlist.known": ["word5", "word6", ...]
-  word: [timestamp, context, source]
+  "wordlist.inbox": ["stem1", "stem2", ...]
+  "wordlist.unknown": ["stem3", "stem4", ...]
+  "wordlist.known": ["stem5", "stem6", ...]
+  stem: [word, source, timestamp]
+    source is youtube video id for now
+  source: [title, author, transcript]
   */
   async ensureDataVersion() {
     if (!(await chromeDB.get("dataVersion")["dataVersion"])) {
@@ -107,16 +109,16 @@ class DB {
     let wordsInfo = [];
     for (i in result) {
       const info = result[i];
-      wordsInfo.push(new Word(i, info[0], info[1], info[2]));
+      wordsInfo.push(new Stem(i, info[0], info[1], info[2]));
     }
     return wordsInfo;
   }
 
-  // words: Array of Word
+  // words: Array of Stems
   async addWord(...words) {
     let wordsInfo = {};
     for (i of words) {
-      wordsInfo[i.word] = [i.timestamp, i.context, i.source];
+      wordsInfo[i.stem] = [i.word, i.source, i.timestamp];
     }
     await chromeDB.set(wordsInfo);
   }
@@ -130,4 +132,4 @@ class DB {
 let db = new DB();
 await db.ensureDataVersion();
 
-export { db, Word };
+export { db, Stem };
