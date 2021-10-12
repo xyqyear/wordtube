@@ -1,6 +1,8 @@
 {
   "name": "WordTube",
   "version": "0.0.1",
+  "description": "This extension helps you memorize new English words from YouTube. This extension comes with ABSOLUTELY NO GUARANTEE.",
+  "icons": { "128": "icon128.png" },
   "manifest_version": 3,
   "permissions": ["storage", "unlimitedStorage"],
   "background": {
