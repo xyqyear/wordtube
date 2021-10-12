@@ -101,11 +101,11 @@ class DB {
 
   // await addToInboxList("a", "b", ...)
   async addToInboxList(...stems) {
-    this._add("wordlist.inbox", ...stems);
+    await this._add("wordlist.inbox", ...stems);
   }
 
   async removeFromInboxList(...stems) {
-    this._remove("wordlist.inbox", ...stems);
+    await this._remove("wordlist.inbox", ...stems);
   }
 
   async getUnknownList() {
@@ -113,11 +113,11 @@ class DB {
   }
 
   async addToUnknownList(...stems) {
-    this._add("wordlist.unknown", ...stems);
+    await this._add("wordlist.unknown", ...stems);
   }
 
   async removeFromUnknownList(...stems) {
-    this._remove("wordlist.unknown", ...stems);
+    await this._remove("wordlist.unknown", ...stems);
   }
 
   async getKnownList() {
@@ -125,11 +125,11 @@ class DB {
   }
 
   async addToKnownList(...stems) {
-    this._add("wordlist.known", ...stems);
+    await this._add("wordlist.known", ...stems);
   }
 
   async removeFromknownList(...stems) {
-    this._remove("wordlist.known", ...stems);
+    await this._remove("wordlist.known", ...stems);
   }
 }
 
