@@ -85,7 +85,7 @@ class DB {
 
   async _remove(key, ...value) {
     let oldValue = (await chromeDB.get(key))[key] || [];
-    for (i of value) {
+    for (const i of value) {
       const index = oldValue.indexOf(i);
       if (index > -1) {
         oldValue.splice(index, 1);
