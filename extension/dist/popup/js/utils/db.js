@@ -78,9 +78,14 @@ class DB {
     await chromeDB.remove(...stems);
   }
 
-  async _add(key, ...value) {
+  async _append(key, ...value) {
     let oldValue = (await chromeDB.get(key))[key] || [];
     await chromeDB.set({ [key]: oldValue.concat(value) });
+  }
+
+  async _prepend(key, ...value) {
+    let oldValue = (await chromeDB.get(key))[key] || [];
+    await chromeDB.set({ [key]: value.concat(oldValue) });
   }
 
   async _remove(key, ...value) {
@@ -101,7 +106,7 @@ class DB {
 
   // await addToInboxList("a", "b", ...)
   async addToInboxList(...stems) {
-    await this._add("wordlist.inbox", ...stems);
+    await this._append("wordlist.inbox", ...stems);
   }
 
   async removeFromInboxList(...stems) {
@@ -113,7 +118,7 @@ class DB {
   }
 
   async addToUnknownList(...stems) {
-    await this._add("wordlist.unknown", ...stems);
+    await this._prepend("wordlist.unknown", ...stems);
   }
 
   async removeFromUnknownList(...stems) {
@@ -125,7 +130,7 @@ class DB {
   }
 
   async addToKnownList(...stems) {
-    await this._add("wordlist.known", ...stems);
+    await this._prepend("wordlist.known", ...stems);
   }
 
   async removeFromknownList(...stems) {
