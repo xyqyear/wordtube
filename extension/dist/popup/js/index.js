@@ -18,7 +18,7 @@ function navigate(e) {
 }
 
 // hander: function hander(node, stemObj)
-function populateWordlist(StemArray, knownHander, unknownHander) {
+async function populateWordlist(StemArray, knownHander, unknownHander) {
   let wordlist = document.getElementById("wordlist");
   wordlist.innerHTML = "";
 
@@ -28,9 +28,35 @@ function populateWordlist(StemArray, knownHander, unknownHander) {
     node.getElementsByClassName("word")[0].innerText = stemObj.word;
     wordlist.appendChild(node);
 
-    node.addEventListener("click", () => {
+    node.addEventListener("click", async () => {
+      const context = await db.getContext(
+        stemObj.source,
+        stemObj.timestamp,
+        20
+      );
+
+      let wordSourceElement = document.getElementById("word-source");
+      wordSourceElement.innerText = `${context.author} - ${context.title}`;
+      const startTime = stemObj.timestamp / 1000 - 3;
+      wordSourceElement.href = `https://www.youtube.com/watch?v=${
+        stemObj.source
+      }&t=${startTime > 0 ? startTime : 0}s`;
+
+      let contextHTML = "";
+      for (const t in context.context) {
+        const word = context.context[t];
+        if (t == stemObj.timestamp) {
+          contextHTML += ` <span class="context-highlight">${word}</span>`;
+        } else {
+          if (!word.startsWith("'")) {
+            contextHTML += " ";
+          }
+          contextHTML += word;
+        }
+      }
+
+      document.getElementById("word-context").innerHTML = contextHTML;
       document.getElementById("overlay").classList.remove("hidden");
-      // ! TODO: Add word info
     });
 
     const knownButton = node.getElementsByClassName("known-button")[0];
@@ -58,7 +84,7 @@ function populateWordlist(StemArray, knownHander, unknownHander) {
 // navigation bar bindings
 
 async function populateInbox() {
-  populateWordlist(
+  await populateWordlist(
     await db.getInboxList(),
     (node, stemObj) => {
       node.remove();
@@ -74,7 +100,7 @@ async function populateInbox() {
 }
 
 async function populateUnknown() {
-  populateWordlist(await db.getUnknownList(), (node, stemObj) => {
+  await populateWordlist(await db.getUnknownList(), (node, stemObj) => {
     node.remove();
     db.removeFromUnknownList(stemObj.stem);
     db.addToKnownList(stemObj.stem);
@@ -82,7 +108,7 @@ async function populateUnknown() {
 }
 
 async function populateKnown() {
-  populateWordlist(await db.getKnownList(), null, (node, stemObj) => {
+  await populateWordlist(await db.getKnownList(), null, (node, stemObj) => {
     node.remove();
     db.removeFromknownList(stemObj.stem);
     db.addToUnknownList(stemObj.stem);
