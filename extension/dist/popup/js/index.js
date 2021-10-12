@@ -76,7 +76,7 @@ async function populateInbox() {
 async function populateUnknown() {
   populateWordlist(await db.getUnknownList(), (node, stemObj) => {
     node.remove();
-    db.removeFromInboxList(stemObj.stem);
+    db.removeFromUnknownList(stemObj.stem);
     db.addToKnownList(stemObj.stem);
   });
 }
@@ -84,7 +84,7 @@ async function populateUnknown() {
 async function populateKnown() {
   populateWordlist(await db.getKnownList(), null, (node, stemObj) => {
     node.remove();
-    db.removeFromInboxList(stemObj.stem);
+    db.removeFromknownList(stemObj.stem);
     db.addToUnknownList(stemObj.stem);
   });
 }
