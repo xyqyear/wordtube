@@ -131,6 +131,25 @@ class DB {
   async removeFromknownList(...stems) {
     await this._remove("wordlist.known", ...stems);
   }
+
+  async getContext(videoID, timestamp, radius) {
+    const videoInfo = await chromeDB.get(videoID)[videoID];
+
+    const index = Object.keys(videoInfo.caption).indexOf(timestamp);
+    const captionLength = Object.keys(videoInfo.caption).length;
+    const context = Object.fromEntries(
+      Object.entries(videoInfo.caption).slice(
+        index - radius > 0 ? index - radius : 0,
+        index + radius < captionLength ? index + radius : captionLength
+      )
+    );
+
+    return {
+      context: context,
+      title: videoInfo.title,
+      author: videoInfo.author,
+    };
+  }
 }
 
 let db = new DB();
