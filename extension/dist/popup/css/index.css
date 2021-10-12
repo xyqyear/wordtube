@@ -82,6 +82,7 @@ body {
 }
 
 .word {
+  font-size: large;
   position: absolute;
   top: 50%;
   margin-left: 8px;
@@ -148,6 +149,7 @@ body {
 }
 
 #word-info {
+  font-size: medium;
   cursor: default;
   position: absolute;
   padding: 5px;
@@ -155,8 +157,11 @@ body {
   left: 10px;
   right: 10px;
   border-radius: 8px;
-  z-index: 3;
   background-color: #f3f1f5;
+}
+
+.context-highlight {
+  background-color: yellow;
 }
 
 /* ! misc styles */
