@@ -40,7 +40,7 @@ class DB {
   "wordlist.known": ["stem5", "stem6", ...]
   stem: [word, source, timestamp]
     source is youtube video id for now
-  source: [title, author, transcript]
+  source: [title, author, caption]
   */
   async ensureDataVersion() {
     if (!(await chromeDB.get("dataVersion")["dataVersion"])) {
@@ -132,8 +132,18 @@ class DB {
     await this._remove("wordlist.known", ...stems);
   }
 
+  async _getVideoInfo(videoID) {
+    console.log(videoID);
+    const rawVideoInfo = (await chromeDB.get(videoID))[videoID];
+    return {
+      title: rawVideoInfo[0],
+      author: rawVideoInfo[1],
+      caption: rawVideoInfo[2],
+    };
+  }
+
   async getContext(videoID, timestamp, radius) {
-    const videoInfo = await chromeDB.get(videoID)[videoID];
+    const videoInfo = await this._getVideoInfo(videoID);
 
     const index = Object.keys(videoInfo.caption).indexOf(timestamp);
     const captionLength = Object.keys(videoInfo.caption).length;
