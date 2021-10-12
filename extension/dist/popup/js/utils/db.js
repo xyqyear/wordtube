@@ -48,6 +48,36 @@ class DB {
     }
   }
 
+  // stems: Array of string
+  async _getStemInfo(...stems) {
+    const result = await chromeDB.get(...stems);
+    let wordsInfo = [];
+    for (const i of stems) {
+      const info = result[i];
+      wordsInfo.push(new Stem(i, info[0], info[1], info[2]));
+    }
+    return wordsInfo;
+  }
+
+  async _getWordList(key) {
+    const stemList = (await chromeDB.get(key))[key] || [];
+    return await this._getStemInfo(...stemList);
+  }
+
+  // StemObjs: Array of Stem objects
+  async addStem(...StemObjs) {
+    let wordsInfo = {};
+    for (i of StemObjs) {
+      wordsInfo[i.stem] = [i.word, i.source, i.timestamp];
+    }
+    await chromeDB.set(wordsInfo);
+  }
+
+  // stems: Array of string
+  async removeStem(...stems) {
+    await chromeDB.remove(...stems);
+  }
+
   async _add(key, ...value) {
     let oldValue = (await chromeDB.get(key))[key] || [];
     await chromeDB.set({ [key]: oldValue.concat(value) });
@@ -66,65 +96,40 @@ class DB {
 
   // await getInboxList() => ["a", "b", ...]
   async getInboxList() {
-    return (await chromeDB.get("wordlist.inbox"))["wordlist.inbox"] || [];
+    return await this._getWordList("wordlist.inbox");
   }
 
   // await addToInboxList("a", "b", ...)
-  async addToInboxList(...words) {
-    this._add("wordlist.inbox", ...words);
+  async addToInboxList(...stems) {
+    this._add("wordlist.inbox", ...stems);
   }
 
-  async removeFromInboxList(...words) {
-    this._remove("wordlist.inbox", ...words);
+  async removeFromInboxList(...stems) {
+    this._remove("wordlist.inbox", ...stems);
   }
 
   async getUnknownList() {
-    return (await chromeDB.get("wordlist.unknown"))["wordlist.unknown"] || [];
+    return await this._getWordList("wordlist.unknown");
   }
 
-  async addToUnknownList(...words) {
-    this._add("wordlist.unknown", ...words);
+  async addToUnknownList(...stems) {
+    this._add("wordlist.unknown", ...stems);
   }
 
-  async removeFromUnknownList(...words) {
-    this._remove("wordlist.unknown", ...words);
+  async removeFromUnknownList(...stems) {
+    this._remove("wordlist.unknown", ...stems);
   }
 
   async getKnownList() {
-    return (await chromeDB.get("wordlist.known"))["wordlist.known"] || [];
+    return await this._getWordList("wordlist.known");
   }
 
-  async addToKnownList(...words) {
-    this._add("wordlist.known", ...words);
+  async addToKnownList(...stems) {
+    this._add("wordlist.known", ...stems);
   }
 
-  async removeFromknownList(...words) {
-    this._remove("wordlist.known", ...words);
-  }
-
-  // words: Array of string
-  async getWordInfo(...words) {
-    result = await chromeDB.get(...words);
-    let wordsInfo = [];
-    for (i in result) {
-      const info = result[i];
-      wordsInfo.push(new Stem(i, info[0], info[1], info[2]));
-    }
-    return wordsInfo;
-  }
-
-  // words: Array of Stems
-  async addWord(...words) {
-    let wordsInfo = {};
-    for (i of words) {
-      wordsInfo[i.stem] = [i.word, i.source, i.timestamp];
-    }
-    await chromeDB.set(wordsInfo);
-  }
-
-  // words: Array of string
-  async removeWord(...words) {
-    await chromeDB.remove(...words);
+  async removeFromknownList(...stems) {
+    this._remove("wordlist.known", ...stems);
   }
 }
 

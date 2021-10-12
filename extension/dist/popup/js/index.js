@@ -17,15 +17,39 @@ function navigate(e) {
   return true;
 }
 
-function populateWordlist(wordArray) {
+// hander: function hander(node, stemObj)
+function populateWordlist(StemArray, infoHander, knownHander, unknownHander) {
   let wordlist = document.getElementById("wordlist");
   wordlist.innerHTML = "";
 
-  for (const word of wordArray) {
+  for (const stemObj of StemArray) {
     let node = wordlist_item_template.cloneNode(true);
-    node.id = "";
-    node.getElementsByClassName("word")[0].innerText = word;
+    node.removeAttribute("id");
+    node.getElementsByClassName("word")[0].innerText = stemObj.word;
     wordlist.appendChild(node);
+
+    const infoButton = node.getElementsByClassName("info-button")[0];
+    if (!infoHander) {
+      infoButton.remove();
+    } else {
+      infoButton.addEventListener("click", () => infoHander(node, stemObj));
+    }
+
+    const knownButton = node.getElementsByClassName("known-button")[0];
+    if (!knownHander) {
+      knownButton.remove();
+    } else {
+      knownButton.addEventListener("click", () => knownHander(node, stemObj));
+    }
+
+    const unknownButton = node.getElementsByClassName("unknown-button")[0];
+    if (!unknownHander) {
+      unknownButton.remove();
+    } else {
+      unknownButton.addEventListener("click", () =>
+        unknownHander(node, stemObj)
+      );
+    }
   }
 }
 
