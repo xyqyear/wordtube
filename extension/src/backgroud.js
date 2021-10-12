@@ -42,7 +42,7 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
   const caption = request.caption;
   const title = request.title;
   const author = request.author;
-  const videoID = sender.tab.url.split("=")[1];
+  const videoID = request.videoID;
 
   // if video is already in the database
   if (!isEmptyObject(await chromeDB.get(videoID))) {

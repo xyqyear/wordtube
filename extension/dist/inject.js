@@ -40,6 +40,8 @@ getTranscriptJson().then((transcriptJson) => {
           window.ytplayer.config.args.raw_player_response.videoDetails.title,
         author:
           window.ytplayer.config.args.raw_player_response.videoDetails.author,
+        videoID:
+          window.ytplayer.config.args.raw_player_response.videoDetails.videoId,
       },
     })
   );
