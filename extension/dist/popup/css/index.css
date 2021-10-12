@@ -105,14 +105,14 @@ body {
   color: black;
 }
 
-.info-button {
+.trash-button {
   margin-right: 4px;
   float: right;
-  background-color: #9ee8ff;
+  background-color: #ff7979;
 }
 
-.info-button:hover {
-  background-color: #83e2ff;
+.trash-button:hover {
+  background-color: #ff6060;
 }
 
 .unknown-button {
