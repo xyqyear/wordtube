@@ -23,7 +23,6 @@ async function getTranscriptJson() {
     tracksWithoutASR.length > 0 ? tracksWithoutASR : captionTracks;
 
   if (captionTracks.length > 0) {
-    console.log(captionTracks[0].baseUrl);
     response = await fetch(captionTracks[0].baseUrl + "&fmt=json3");
     return await response.json();
   }
