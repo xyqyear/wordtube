@@ -16,18 +16,23 @@
             <div id="known-nav">Known</div>
         </div>
         <div id="wordlist" class="wordlist"></div>
+        <div id="overlay" class="hidden">
+            <div id="word-info">
+                <a id="word-source" href="#"></a>
+                <div id="word-context"></div>
+            </div>
+        </div>
     </div>
 </body>
 
 <div class="hidden">
-    <div class="list-item" id="wordlist-item-template">
+    <a href="#" class="list-item" id="wordlist-item-template">
         <div class="word"></div>
         <div class="buttons horizontal-center">
             <div class="known-button button flex center-child"><span class="horizontal-center">&#x2714</span></div>
             <div class="unknown-button button flex center-child"><span class="horizontal-center">&#x2718</span></div>
-            <div class="info-button button flex center-child"><span class="horizontal-center">?</span></div>
         </div>
-    </div>
+    </a>
 </div>
 
 <script src="js/index.js" type="module"> </script>
