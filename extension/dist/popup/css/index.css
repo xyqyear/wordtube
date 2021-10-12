@@ -70,7 +70,6 @@
 }
 
 .list-item {
-  cursor: pointer;
   position: relative;
   text-decoration: none;
   border-radius: 8px;
@@ -82,10 +81,6 @@
 
 .list-item:hover {
   background-color: #f0d9ff;
-}
-
-.list-item:active {
-  background-color: #ebccff;
 }
 
 .word {
@@ -103,11 +98,22 @@
 }
 
 .button {
+  cursor: pointer;
   border-radius: 5px;
   border-width: 1px;
   height: 26px;
   width: 50px;
   color: black;
+}
+
+.info-button {
+  margin-right: 4px;
+  float: right;
+  background-color: #9ee8ff;
+}
+
+.info-button:hover {
+  background-color: #83e2ff;
 }
 
 .unknown-button {
