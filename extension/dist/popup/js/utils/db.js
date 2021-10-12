@@ -133,7 +133,6 @@ class DB {
   }
 
   async _getVideoInfo(videoID) {
-    console.log(videoID);
     const rawVideoInfo = (await chromeDB.get(videoID))[videoID];
     return {
       title: rawVideoInfo[0],
