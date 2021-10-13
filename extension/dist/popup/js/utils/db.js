@@ -137,6 +137,18 @@ class DB {
     await this._remove("wordlist.known", ...stems);
   }
 
+  async getTrashList() {
+    return await this._getWordList("wordlist.trash");
+  }
+
+  async addToTrashList(...stems) {
+    await this._prepend("wordlist.trash", ...stems);
+  }
+
+  async removeFromTrashList(...stems) {
+    await this._remove("wordlist.trash", ...stems);
+  }
+
   async _getVideoInfo(videoID) {
     const rawVideoInfo = (await chromeDB.get(videoID))[videoID];
     return {

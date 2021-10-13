@@ -118,24 +118,63 @@ async function populateInbox() {
       node.remove();
       db.removeFromInboxList(stemObj.stem);
       db.addToUnknownList(stemObj.stem);
+    },
+    (node, stemObj) => {
+      node.remove();
+      db.removeFromInboxList(stemObj.stem);
+      db.addToTrashList(stemObj.stem);
     }
   );
 }
 
 async function populateUnknown() {
-  await populateWordlist(await db.getUnknownList(), (node, stemObj) => {
-    node.remove();
-    db.removeFromUnknownList(stemObj.stem);
-    db.addToKnownList(stemObj.stem);
-  });
+  await populateWordlist(
+    await db.getUnknownList(),
+    (node, stemObj) => {
+      node.remove();
+      db.removeFromUnknownList(stemObj.stem);
+      db.addToKnownList(stemObj.stem);
+    },
+    null,
+    (node, stemObj) => {
+      node.remove();
+      db.removeFromUnknownList(stemObj.stem);
+      db.addToTrashList(stemObj.stem);
+    }
+  );
 }
 
 async function populateKnown() {
-  await populateWordlist(await db.getKnownList(), null, (node, stemObj) => {
-    node.remove();
-    db.removeFromknownList(stemObj.stem);
-    db.addToUnknownList(stemObj.stem);
-  });
+  await populateWordlist(
+    await db.getKnownList(),
+    null,
+    (node, stemObj) => {
+      node.remove();
+      db.removeFromknownList(stemObj.stem);
+      db.addToUnknownList(stemObj.stem);
+    },
+    (node, stemObj) => {
+      node.remove();
+      db.removeFromknownList(stemObj.stem);
+      db.addToTrashList(stemObj.stem);
+    }
+  );
+}
+
+async function populateTrash() {
+  await populateWordlist(
+    await db.getTrashList(),
+    (node, stemObj) => {
+      node.remove();
+      db.removeFromTrashList(stemObj.stem);
+      db.addToKnownList(stemObj.stem);
+    },
+    (node, stemObj) => {
+      node.remove();
+      db.removeFromTrashList(stemObj.stem);
+      db.addToUnknownList(stemObj.stem);
+    }
+  );
 }
 
 // ! navigation handling
@@ -160,7 +199,12 @@ document.getElementById("known-nav").addEventListener("click", async (e) => {
   await populateKnown();
 });
 
-populateInbox();
+document.getElementById("trash-nav").addEventListener("click", async (e) => {
+  if (!navigate(e)) {
+    return;
+  }
+  await populateTrash();
+});
 
 // ! overlay stuff
 document.getElementById("overlay").addEventListener("click", (e) => {
@@ -170,3 +214,5 @@ document.getElementById("overlay").addEventListener("click", (e) => {
 document.getElementById("word-info").addEventListener("click", (e) => {
   e.stopPropagation();
 });
+
+populateInbox();

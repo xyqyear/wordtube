@@ -49,7 +49,7 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     return;
   }
 
-  // get the parse the caption from youtube
+  // ! parse caption from youtube
   let parsedCaption = {};
 
   for (const event of caption.events) {
@@ -73,7 +73,7 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     }
   }
 
-  // this will elliminate some duplicated words
+  // for word to timestamp lookup
   const reversedCaption = Object.fromEntries(
     Object.entries(parsedCaption).map((a) => a.reverse())
   );
@@ -86,8 +86,25 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
       .map((a) => [stem(a), a])
   );
 
-  // find out which stem isn't in database and
+  // if the stem doesn't exist in database or is in trash list
   const existingStems = await chromeDB.get(...Object.keys(stem2word));
+  const inTrashStems =
+    (await chromeDB.get("wordlist.trash"))["wordlist.trash"] || [];
+
+  // if the exsiting stem is in trash, then update the stem info and move to inbox
+  const newTrashcan = [];
+  for (const trashStem of inTrashStems) {
+    if (trashStem in existingStems) {
+      delete existingStems[trashStem];
+    } else {
+      newTrashcan.push(trashStem);
+    }
+  }
+  // update trashcan
+  await chromeDB.set({ "wordlist.trash": newTrashcan });
+
+  // ! populate non exsiting stem info
+  // including stem, word, videoID and timestamp(in video)
   let nonExistingStemInfo = {};
   for (const stem in stem2word) {
     if (!(stem in existingStems)) {
@@ -97,16 +114,16 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     }
   }
 
-  // save the stem info to database
+  // ! save the stem info to database
   await chromeDB.set(nonExistingStemInfo);
 
-  // send the stems to inbox
+  // ! send the stems to inbox
   const inbox = (await chromeDB.get("wordlist.inbox"))["wordlist.inbox"] || [];
   await chromeDB.set({
     "wordlist.inbox": inbox.concat(Object.keys(nonExistingStemInfo)),
   });
 
-  // save the source
+  // ! save the source
   // stupid javascript
   await chromeDB.set({ [videoID]: [title, author, parsedCaption] });
 });
