@@ -4,7 +4,7 @@ const wordlist_item_template = document.querySelector(
   "#wordlist-item-template"
 );
 
-// change the navigation bar
+// ! change the navigation bar
 // not navigating to the actual page
 // return false if dont need to navigate
 function navigate(e) {
@@ -17,17 +17,19 @@ function navigate(e) {
   return true;
 }
 
-// hander: function hander(node, stemObj)
+// ! populate word list
 async function populateWordlist(StemArray, knownHander, unknownHander) {
   let wordlist = document.getElementById("wordlist");
   wordlist.innerHTML = "";
 
   for (const stemObj of StemArray) {
+    // ! insert list item
     let node = wordlist_item_template.cloneNode(true);
     node.removeAttribute("id");
     node.getElementsByClassName("word")[0].innerText = stemObj.word;
     wordlist.appendChild(node);
 
+    // ! show context popup when click
     node.addEventListener("click", async () => {
       const context = await db.getContext(
         stemObj.source,
@@ -35,6 +37,7 @@ async function populateWordlist(StemArray, knownHander, unknownHander) {
         20
       );
 
+      // ! show source
       let wordSourceElement = document.getElementById("word-source");
       wordSourceElement.innerText = `${context.author} - ${context.title}`;
       const startTime = stemObj.timestamp / 1000 - 3;
@@ -42,6 +45,7 @@ async function populateWordlist(StemArray, knownHander, unknownHander) {
         stemObj.source
       }&t=${startTime > 0 ? startTime : 0}s`;
 
+      // ! show context text
       let contextHTML = "";
       for (const t in context.context) {
         const word = context.context[t];
@@ -54,11 +58,14 @@ async function populateWordlist(StemArray, knownHander, unknownHander) {
           contextHTML += word;
         }
       }
-
       document.getElementById("word-context").innerHTML = contextHTML;
+
       document.getElementById("overlay").classList.remove("hidden");
     });
 
+    // ! button handling
+    // if knownHander is not passed in, hide the button
+    // otherwise bind the click event to the handler
     const knownButton = node.getElementsByClassName("known-button")[0];
     if (!knownHander) {
       knownButton.remove();
@@ -115,6 +122,7 @@ async function populateKnown() {
   });
 }
 
+// ! navigation handling
 document.getElementById("inbox-nav").addEventListener("click", async (e) => {
   if (!navigate(e)) {
     return;
@@ -138,8 +146,7 @@ document.getElementById("known-nav").addEventListener("click", async (e) => {
 
 populateInbox();
 
-// overlay stuff
-
+// ! overlay stuff
 document.getElementById("overlay").addEventListener("click", (e) => {
   e.target.classList.add("hidden");
 });
