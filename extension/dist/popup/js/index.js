@@ -18,7 +18,12 @@ function navigate(e) {
 }
 
 // ! populate word list
-async function populateWordlist(StemArray, knownHander, unknownHander) {
+async function populateWordlist(
+  StemArray,
+  knownHander,
+  unknownHander,
+  trashHandler
+) {
   let wordlist = document.getElementById("wordlist");
   wordlist.innerHTML = "";
 
@@ -84,6 +89,16 @@ async function populateWordlist(StemArray, knownHander, unknownHander) {
       unknownButton.addEventListener("click", (e) => {
         e.stopPropagation();
         unknownHander(node, stemObj);
+      });
+    }
+
+    const trashButton = node.getElementsByClassName("trash-button")[0];
+    if (!trashHandler) {
+      trashButton.remove();
+    } else {
+      trashButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        trashHandler(node, stemObj);
       });
     }
   }
