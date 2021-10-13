@@ -46,7 +46,7 @@ async function populateWordlist(StemArray, knownHander, unknownHander) {
       }&t=${startTime > 0 ? startTime : 0}s`;
 
       // ! show context text
-      let contextHTML = "";
+      let contextHTML = "...";
       for (const t in context.context) {
         const word = context.context[t];
         if (t == stemObj.timestamp) {
@@ -58,6 +58,7 @@ async function populateWordlist(StemArray, knownHander, unknownHander) {
           contextHTML += word;
         }
       }
+      contextHTML += " ...";
       document.getElementById("word-context").innerHTML = contextHTML;
 
       document.getElementById("overlay").classList.remove("hidden");
