@@ -8,12 +8,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #888888;
   border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(2, 2, 2);
+  background: #020202;
 }
 
 body {
@@ -39,21 +39,28 @@ body {
   cursor: pointer;
 }
 
-.topnav div {
-  color: #f2f2f2;
+.topnav > div {
   text-align: center;
-  padding: 10px;
   flex: 1;
-  font-size: 17px;
-  color: white;
 }
 
-.topnav div:hover {
+.topnav > div:hover {
   background-color: #8d769e;
 }
 
-.topnav div.active {
-  background-color: #bfa2db;
+.topnav > div:active {
+  background-color: #a087b8;
+}
+
+.nav-text {
+  font-size: 17px;
+  color: #ffffff;
+}
+
+.nav-number {
+  font-size: 14px;
+  color: #d4d4d4;
+  padding-bottom: 4px;
 }
 
 /* ! the wordlist */
@@ -67,7 +74,7 @@ body {
   position: relative;
   text-decoration: none;
   border-radius: 8px;
-  background-color: white;
+  background-color: #ffffff;
   display: block;
   margin-top: 5px;
   height: 40px;
@@ -96,7 +103,7 @@ body {
   top: 50%;
   margin-left: 8px;
   transform: translate(0, -50%);
-  color: black;
+  color: #000000;
 }
 
 /* ! buttons in wordlist */
@@ -111,7 +118,7 @@ body {
   border-width: 1px;
   height: 26px;
   width: 50px;
-  color: black;
+  color: #000000;
 }
 
 .trash-button {
@@ -152,7 +159,7 @@ body {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #00000080;
   z-index: 2;
   cursor: pointer;
 }
@@ -170,7 +177,7 @@ body {
 }
 
 .context-highlight {
-  background-color: yellow;
+  background-color: #ffff00;
 }
 
 /* ! misc styles */
