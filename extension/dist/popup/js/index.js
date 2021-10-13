@@ -9,12 +9,28 @@ const wordlist_item_template = document.querySelector(
 // return false if dont need to navigate
 function navigate(e) {
   // if the event target is active, then do nothing.
-  if (e.target.classList.contains("active")) {
+  if (e.currentTarget.classList.contains("nav-active")) {
     return false;
   }
-  document.getElementsByClassName("active")[0].classList.remove("active");
-  e.target.classList.add("active");
+  document
+    .getElementsByClassName("nav-active")[0]
+    .classList.remove("nav-active");
+  e.currentTarget.classList.add("nav-active");
   return true;
+}
+
+async function updateNavNumber() {
+  const inboxSize = (await db.getInboxList()).length || 0;
+  document.getElementById("inbox-size").innerText = inboxSize;
+
+  const unknownSize = (await db.getUnknownList()).length || 0;
+  document.getElementById("unknown-size").innerText = unknownSize;
+
+  const knownSize = (await db.getKnownList()).length || 0;
+  document.getElementById("known-size").innerText = knownSize;
+
+  const trashSize = (await db.getTrashList()).length || 0;
+  document.getElementById("trash-size").innerText = trashSize;
 }
 
 // ! populate word list
@@ -76,9 +92,10 @@ async function populateWordlist(
     if (!knownHander) {
       knownButton.remove();
     } else {
-      knownButton.addEventListener("click", (e) => {
+      knownButton.addEventListener("click", async (e) => {
         e.stopPropagation();
-        knownHander(node, stemObj);
+        await knownHander(node, stemObj);
+        await updateNavNumber();
       });
     }
 
@@ -86,9 +103,10 @@ async function populateWordlist(
     if (!unknownHander) {
       unknownButton.remove();
     } else {
-      unknownButton.addEventListener("click", (e) => {
+      unknownButton.addEventListener("click", async (e) => {
         e.stopPropagation();
-        unknownHander(node, stemObj);
+        await unknownHander(node, stemObj);
+        await updateNavNumber();
       });
     }
 
@@ -96,9 +114,10 @@ async function populateWordlist(
     if (!trashHandler) {
       trashButton.remove();
     } else {
-      trashButton.addEventListener("click", (e) => {
+      trashButton.addEventListener("click", async (e) => {
         e.stopPropagation();
-        trashHandler(node, stemObj);
+        await trashHandler(node, stemObj);
+        await updateNavNumber();
       });
     }
   }
@@ -109,20 +128,20 @@ async function populateWordlist(
 async function populateInbox() {
   await populateWordlist(
     await db.getInboxList(),
-    (node, stemObj) => {
+    async (node, stemObj) => {
       node.remove();
-      db.removeFromInboxList(stemObj.stem);
-      db.addToKnownList(stemObj.stem);
+      await db.removeFromInboxList(stemObj.stem);
+      await db.addToKnownList(stemObj.stem);
     },
-    (node, stemObj) => {
+    async (node, stemObj) => {
       node.remove();
-      db.removeFromInboxList(stemObj.stem);
-      db.addToUnknownList(stemObj.stem);
+      await db.removeFromInboxList(stemObj.stem);
+      await db.addToUnknownList(stemObj.stem);
     },
-    (node, stemObj) => {
+    async (node, stemObj) => {
       node.remove();
-      db.removeFromInboxList(stemObj.stem);
-      db.addToTrashList(stemObj.stem);
+      await db.removeFromInboxList(stemObj.stem);
+      await db.addToTrashList(stemObj.stem);
     }
   );
 }
@@ -130,16 +149,16 @@ async function populateInbox() {
 async function populateUnknown() {
   await populateWordlist(
     await db.getUnknownList(),
-    (node, stemObj) => {
+    async (node, stemObj) => {
       node.remove();
-      db.removeFromUnknownList(stemObj.stem);
-      db.addToKnownList(stemObj.stem);
+      await db.removeFromUnknownList(stemObj.stem);
+      await db.addToKnownList(stemObj.stem);
     },
     null,
-    (node, stemObj) => {
+    async (node, stemObj) => {
       node.remove();
-      db.removeFromUnknownList(stemObj.stem);
-      db.addToTrashList(stemObj.stem);
+      await db.removeFromUnknownList(stemObj.stem);
+      await db.addToTrashList(stemObj.stem);
     }
   );
 }
@@ -148,15 +167,15 @@ async function populateKnown() {
   await populateWordlist(
     await db.getKnownList(),
     null,
-    (node, stemObj) => {
+    async (node, stemObj) => {
       node.remove();
-      db.removeFromknownList(stemObj.stem);
-      db.addToUnknownList(stemObj.stem);
+      await db.removeFromknownList(stemObj.stem);
+      await db.addToUnknownList(stemObj.stem);
     },
-    (node, stemObj) => {
+    async (node, stemObj) => {
       node.remove();
-      db.removeFromknownList(stemObj.stem);
-      db.addToTrashList(stemObj.stem);
+      await db.removeFromknownList(stemObj.stem);
+      await db.addToTrashList(stemObj.stem);
     }
   );
 }
@@ -164,15 +183,15 @@ async function populateKnown() {
 async function populateTrash() {
   await populateWordlist(
     await db.getTrashList(),
-    (node, stemObj) => {
+    async (node, stemObj) => {
       node.remove();
-      db.removeFromTrashList(stemObj.stem);
-      db.addToKnownList(stemObj.stem);
+      await db.removeFromTrashList(stemObj.stem);
+      await db.addToKnownList(stemObj.stem);
     },
-    (node, stemObj) => {
+    async (node, stemObj) => {
       node.remove();
-      db.removeFromTrashList(stemObj.stem);
-      db.addToUnknownList(stemObj.stem);
+      await db.removeFromTrashList(stemObj.stem);
+      await db.addToUnknownList(stemObj.stem);
     }
   );
 }
@@ -215,4 +234,5 @@ document.getElementById("word-info").addEventListener("click", (e) => {
   e.stopPropagation();
 });
 
+updateNavNumber();
 populateInbox();

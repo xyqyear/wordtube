@@ -48,8 +48,8 @@ body {
   background-color: #8d769e;
 }
 
-.topnav > div:active {
-  background-color: #a087b8;
+.topnav > div.nav-active {
+  background-color: #bfa2db;
 }
 
 .nav-text {
@@ -59,7 +59,7 @@ body {
 
 .nav-number {
   font-size: 14px;
-  color: #d4d4d4;
+  color: #d8d8d8;
   padding-bottom: 4px;
 }
 
@@ -115,7 +115,6 @@ body {
 .button {
   cursor: pointer;
   border-radius: 5px;
-  border-width: 1px;
   height: 26px;
   width: 50px;
   color: #000000;
