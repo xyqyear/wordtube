@@ -77,6 +77,15 @@ body {
   background-color: #f0d9ff;
 }
 
+/* only show buttons when hover on the list item */
+.list-item .buttons {
+  display: none;
+}
+
+.list-item:hover .buttons {
+  display: block;
+}
+
 .list-item:active {
   background-color: #eacaff;
 }
