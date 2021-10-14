@@ -9,26 +9,26 @@
 </head>
 
 <body>
-    <div id="app">
-        <div class="topnav">
-            <div class="nav-active" id="inbox-nav">
+    <div id="app" class="flex-colomn">
+        <div class="flex-row" id="topnav">
+            <div class="nav-active flex-colomn v-center-child h-center-child" id="inbox-nav">
                 <div class="nav-text">Inbox</div>
                 <div id="inbox-size" class="nav-number">0</div>
             </div>
-            <div id="unknown-nav">
+            <div class="flex-colomn v-center-child h-center-child" id="unknown-nav">
                 <div class="nav-text">Unknown</div>
                 <div id="unknown-size" class="nav-number">0</div>
             </div>
-            <div id="known-nav">
+            <div class="flex-colomn v-center-child h-center-child" id="known-nav">
                 <div class="nav-text">Known</div>
                 <div id="known-size" class="nav-number">0</div>
             </div>
-            <div id="trash-nav">
+            <div class="flex-colomn v-center-child h-center-child" id="trash-nav">
                 <div class="nav-text">Trash</div>
                 <div id="trash-size" class="nav-number">0</div>
             </div>
         </div>
-        <div id="wordlist" class="wordlist"></div>
+        <div id="wordlist"></div>
         <div id="overlay" class="hidden">
             <div id="word-info">
                 <a id="word-source" href="#"></a>
@@ -40,12 +40,14 @@
 </body>
 
 <div class="hidden">
-    <a href="#" class="list-item" id="wordlist-item-template">
-        <div class="word"></div>
-        <div class="buttons horizontal-center">
-            <div class="trash-button button flex center-child"><span class="horizontal-center">&#x1F5D1</span></div>
-            <div class="known-button button flex center-child"><span class="horizontal-center">&#x2714</span></div>
-            <div class="unknown-button button flex center-child"><span class="horizontal-center">&#x2718</span></div>
+    <a href="#" class="list-item flex-row v-center-child" id="wordlist-item-template">
+        <div class="list-item-word"></div>
+        <div class="list-item-buttons flex-row">
+            <div class="known-button list-item-button flex-colomn v-center-child h-center-child"><span
+                    class="horizontal-center">&#x2714</span></div>
+            <div class="unknown-button list-item-button flex-colomn v-center-child h-center-child"><span
+                    class="horizontal-center">&#x2718</span></div>
+            <div class="trash-button list-item-button flex-colomn v-center-child h-center-child">&#x1F5D1</div>
         </div>
     </a>
 </div>

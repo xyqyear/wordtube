@@ -47,7 +47,7 @@ async function populateWordlist(
     // ! insert list item
     let node = wordlist_item_template.cloneNode(true);
     node.removeAttribute("id");
-    node.getElementsByClassName("word")[0].innerText = stemObj.word;
+    node.getElementsByClassName("list-item-word")[0].innerText = stemObj.word;
     wordlist.appendChild(node);
 
     // ! show context popup when click

@@ -24,58 +24,52 @@ body {
 #app {
   height: 500px;
   width: 400px;
-
-  display: flex;
-  flex-direction: column;
 }
 
 /* ! navigation bar */
 
-.topnav {
+#topnav {
   border-radius: 8px;
+  /* this element will not grow, not shrink, height being 40px */
+  flex: 0 0 40px;
   background-color: #7f7c82;
   overflow: hidden;
-  display: flex;
   cursor: pointer;
 }
 
-.topnav > div {
-  text-align: center;
+#topnav > div {
+  /* divs in #topnav will grow, and take equal space */
   flex: 1;
 }
 
-.topnav > div:hover {
+#topnav > div:hover {
   background-color: #8d769e;
 }
 
-.topnav > div.nav-active {
+#topnav > div.nav-active {
   background-color: #bfa2db;
 }
 
 .nav-text {
-  font-size: 17px;
+  font-size: medium;
   color: #ffffff;
 }
 
 .nav-number {
-  font-size: 14px;
+  font-size: small;
   color: #d8d8d8;
-  margin-bottom: 6px;
 }
 
 /* ! the wordlist */
 
-.wordlist {
-  height: 100%;
+#wordlist {
   overflow-y: auto;
 }
 
 .list-item {
-  position: relative;
   text-decoration: none;
   border-radius: 8px;
   background-color: #ffffff;
-  display: block;
   margin-top: 5px;
   height: 40px;
 }
@@ -85,34 +79,32 @@ body {
 }
 
 /* only show buttons when hover on the list item */
-.list-item .buttons {
+.list-item .list-item-buttons {
   display: none;
 }
 
-.list-item:hover .buttons {
-  display: block;
+.list-item:hover .list-item-buttons {
+  display: flex;
 }
 
 .list-item:active {
   background-color: #eacaff;
 }
 
-.word {
+.list-item-word {
   font-size: large;
-  position: absolute;
-  top: 50%;
   margin-left: 8px;
-  transform: translate(0, -50%);
   color: #000000;
 }
 
 /* ! buttons in wordlist */
 
-.buttons {
-  right: 0%;
+/* to make the button list float to right */
+.list-item-buttons {
+  margin-left: auto;
 }
 
-.button {
+.list-item-button {
   cursor: pointer;
   border-radius: 5px;
   height: 26px;
@@ -122,7 +114,6 @@ body {
 
 .trash-button {
   margin-right: 4px;
-  float: right;
   background-color: #ff7979;
 }
 
@@ -132,7 +123,6 @@ body {
 
 .unknown-button {
   margin-right: 4px;
-  float: right;
   background-color: #ffd0d0;
 }
 
@@ -142,7 +132,6 @@ body {
 
 .known-button {
   margin-right: 4px;
-  float: right;
   background-color: #d8ffb1;
 }
 
@@ -156,8 +145,6 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
   background-color: #00000080;
   z-index: 2;
   cursor: pointer;
@@ -192,19 +179,25 @@ body {
 /* ! misc styles */
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
-.flex {
+.flex-colomn {
   display: flex;
+  flex-direction: column;
 }
 
-.horizontal-center {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }
 
-.center-child {
+.v-center-child {
+  display: flex;
+  align-items: center;
+}
+
+.h-center-child {
+  display: flex;
   justify-content: center;
 }
