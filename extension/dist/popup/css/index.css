@@ -163,6 +163,16 @@ body {
   cursor: pointer;
 }
 
+#word-source {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#dict-link {
+  display: block;
+  margin-bottom: 5px;
+}
+
 #word-info {
   font-size: medium;
   cursor: default;

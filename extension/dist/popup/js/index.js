@@ -66,6 +66,11 @@ async function populateWordlist(
         stemObj.source
       }&t=${startTime > 0 ? startTime : 0}s`;
 
+      // ! show the google dictionary link
+      let dictLink = document.getElementById("dict-link");
+      dictLink.innerText = `Google search - define ${stemObj.word}`;
+      dictLink.href = `https://www.google.com/search?q=define%20${stemObj.word}`;
+
       // ! show context text
       let contextHTML = "...";
       for (const t in context.context) {
