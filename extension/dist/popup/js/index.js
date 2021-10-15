@@ -1,8 +1,8 @@
 import { db } from "./utils/db.js";
+import { assembleContext, assembleYoutube } from "./utils/assembly.js";
+import { downloadText, exportStems } from "./utils/exporting.js";
 
-const wordlist_item_template = document.querySelector(
-  "#wordlist-item-template"
-);
+const wordlistItemTemplate = document.querySelector("#wordlist-item-template");
 
 // ! change the navigation bar
 // not navigating to the actual page
@@ -48,7 +48,7 @@ async function populateWordlist(
 
   for (const stemObj of StemArray) {
     // ! insert list item
-    let node = wordlist_item_template.cloneNode(true);
+    let node = wordlistItemTemplate.cloneNode(true);
     node.removeAttribute("id");
     node.getElementsByClassName("list-item-word")[0].innerText = stemObj.word;
     wordlist.appendChild(node);
@@ -58,16 +58,16 @@ async function populateWordlist(
       const context = await db.getContext(
         stemObj.source,
         stemObj.timestamp,
-        20
+        30
       );
 
       // ! show source
       let wordSourceElement = document.getElementById("word-source");
       wordSourceElement.innerText = `${context.author} - ${context.title}`;
-      const startTime = stemObj.timestamp / 1000 - 3;
-      wordSourceElement.href = `https://www.youtube.com/watch?v=${
-        stemObj.source
-      }&t=${startTime > 0 ? startTime : 0}s`;
+      wordSourceElement.href = assembleYoutube(
+        stemObj.source,
+        stemObj.timestamp
+      );
 
       // ! show the google dictionary link
       let dictLink = document.getElementById("dict-link");
@@ -75,20 +75,10 @@ async function populateWordlist(
       dictLink.href = `https://www.google.com/search?q=define%20${stemObj.word}`;
 
       // ! show context text
-      let contextHTML = "...";
-      for (const t in context.context) {
-        const word = context.context[t];
-        if (t == stemObj.timestamp) {
-          contextHTML += ` <span class="context-highlight">${word}</span>`;
-        } else {
-          if (!word.startsWith("'")) {
-            contextHTML += " ";
-          }
-          contextHTML += word;
-        }
-      }
-      contextHTML += " ...";
-      document.getElementById("word-context").innerHTML = contextHTML;
+      document.getElementById("word-context").innerHTML = assembleContext(
+        context.context,
+        stemObj.timestamp
+      );
 
       document.getElementById("overlay").classList.remove("hidden");
     });
@@ -131,8 +121,16 @@ async function populateWordlist(
   }
 }
 
-// navigation bar bindings
+// ! export button
+function hideExportButton() {
+  document.getElementById("export-button").classList.add("hidden");
+}
 
+function showExportButton() {
+  document.getElementById("export-button").classList.remove("hidden");
+}
+
+// ! navigation bar bindings
 async function populateInbox() {
   await populateWordlist(
     await db.getInboxList(),
@@ -225,6 +223,7 @@ document.getElementById("inbox-nav").addEventListener("click", async (e) => {
   if (!navigate(e)) {
     return;
   }
+  hideExportButton();
   await populateInbox();
 });
 
@@ -232,6 +231,7 @@ document.getElementById("unknown-nav").addEventListener("click", async (e) => {
   if (!navigate(e)) {
     return;
   }
+  showExportButton();
   await populateUnknown();
 });
 
@@ -239,6 +239,7 @@ document.getElementById("known-nav").addEventListener("click", async (e) => {
   if (!navigate(e)) {
     return;
   }
+  hideExportButton();
   await populateKnown();
 });
 
@@ -246,6 +247,7 @@ document.getElementById("trash-nav").addEventListener("click", async (e) => {
   if (!navigate(e)) {
     return;
   }
+  hideExportButton();
   await populateTrash();
 });
 
@@ -253,7 +255,20 @@ document.getElementById("exported-nav").addEventListener("click", async (e) => {
   if (!navigate(e)) {
     return;
   }
+  hideExportButton();
   await populateExported();
+});
+
+// ! export button
+document.getElementById("export-button").addEventListener("click", async () => {
+  const stemObjList = await db.getUnknownList();
+  const exportText = await exportStems(stemObjList);
+  await downloadText(exportText, "export.txt");
+  // TODO: only move stems to exported list when download finishes
+  await db.removeFromUnknownList(...stems);
+  await db.addToExportedList(...stems);
+  await updateNavNumber();
+  await populateUnknown();
 });
 
 // ! overlay stuff
