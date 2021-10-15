@@ -7,8 +7,8 @@ async function exportStems(stemObjList) {
     // database reading here can be optimized
     const context = await db.getContext(stemObj.source, stemObj.timestamp, 30);
 
-    exportText += `${stemObj.word}\t${context.title} - ${
-      context.author
+    exportText += `${stemObj.word}\t${context.author} - ${
+      context.title
     }\t${assembleYoutube(stemObj.source, stemObj.timestamp)}\t${assembleContext(
       context.context,
       stemObj.timestamp
