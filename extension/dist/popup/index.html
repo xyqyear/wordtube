@@ -33,6 +33,7 @@
             </div>
         </div>
         <div id="wordlist"></div>
+        <div id="incoming-videos"></div>
         <div id="export-button" class="hidden flex-row v-center-child h-center-child">Export</div>
         <div id="overlay" class="hidden">
             <div id="word-info">
@@ -45,7 +46,7 @@
 </body>
 
 <div class="hidden">
-    <a href="#" class="list-item flex-row v-center-child" id="wordlist-item-template">
+    <a id="wordlist-item-template" class="list-item flex-row v-center-child" href="#">
         <div class="list-item-word"></div>
         <div class="list-item-buttons flex-row">
             <div class="known-button list-item-button flex-colomn v-center-child h-center-child">&#x2714</div>
@@ -53,6 +54,13 @@
             <div class="trash-button list-item-button flex-colomn v-center-child h-center-child">&#x1F5D1</div>
         </div>
     </a>
+    <div id="incoming-videos-item-template" class="incoming-videos-item flex-row v-center-child">
+        <a class="incoming-vidoes-title" href="#" target="_blank"></a>
+        <div class="list-item-buttons flex-row">
+            <div class="keep-button list-item-button flex-colomn v-center-child h-center-child">&#x2714</div>
+            <div class="delete-button list-item-button flex-colomn v-center-child h-center-child">&#x2718</div>
+        </div>
+    </div>
 </div>
 
 <script src="js/index.js" type="module"> </script>

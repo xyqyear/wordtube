@@ -1,4 +1,4 @@
-/* ! scrollbar */
+/* * scrollbar */
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -26,7 +26,7 @@ body {
   width: 400px;
 }
 
-/* ! navigation bar */
+/* * navigation bar */
 
 #topnav {
   border-radius: 8px;
@@ -61,10 +61,12 @@ body {
   color: #d8d8d8;
 }
 
-/* ! the wordlist */
+/* * the wordlist */
 
 #wordlist {
   overflow-y: auto;
+  /* it shrinks but never less than 300px */
+  flex: 1 0 300px;
 }
 
 .list-item {
@@ -98,7 +100,7 @@ body {
   color: #000000;
 }
 
-/* ! buttons in wordlist */
+/* * buttons in wordlist */
 
 /* to make the button list float to right */
 .list-item-buttons {
@@ -140,7 +142,55 @@ body {
   background-color: #ccff99;
 }
 
-/* ! the export button */
+/* * the incoming video list */
+
+#incoming-videos {
+  overflow-y: auto;
+}
+
+.incoming-videos-item {
+  border-radius: 8px;
+  background-color: #ffffff;
+  margin-top: 5px;
+  height: 40px;
+}
+
+/* only show buttons when hover on the list item */
+.incoming-videos-item .list-item-buttons {
+  display: none;
+}
+
+.incoming-videos-item:hover .list-item-buttons {
+  display: flex;
+}
+
+.incoming-vidoes-title {
+  font-size: small;
+  margin: auto 8px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.keep-button {
+  margin-right: 4px;
+  background-color: #d8ffb1;
+}
+
+.keep-button:hover {
+  background-color: #ccff99;
+}
+
+.delete-button {
+  margin-right: 4px;
+  background-color: #ffd0d0;
+}
+
+.delete-button:hover {
+  background-color: #ffc4c4;
+}
+
+/* * the export button */
 
 #export-button {
   margin-top: 5px;
@@ -158,7 +208,7 @@ body {
   background-color: #ff3c3c;
 }
 
-/* ! the overlay */
+/* * the overlay */
 
 #overlay {
   position: absolute;
@@ -195,7 +245,7 @@ body {
   background-color: #ffff00;
 }
 
-/* ! misc styles */
+/* * misc styles */
 
 .hidden {
   display: none !important;
