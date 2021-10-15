@@ -149,6 +149,18 @@ class DB {
     await this._remove("wordlist.trash", ...stems);
   }
 
+  async getExportedList() {
+    return await this._getWordList("wordlist.exported");
+  }
+
+  async addToExportedList(...stems) {
+    await this._prepend("wordlist.exported", ...stems);
+  }
+
+  async removeFromExportedList(...stems) {
+    await this._remove("wordlist.exported", ...stems);
+  }
+
   async _getVideoInfo(videoID) {
     const rawVideoInfo = (await chromeDB.get(videoID))[videoID];
     return {

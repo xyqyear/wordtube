@@ -31,6 +31,9 @@ async function updateNavNumber() {
 
   const trashSize = (await db.getTrashList()).length || 0;
   document.getElementById("trash-size").innerText = trashSize;
+
+  const exportedList = (await db.getExportedList()).length || 0;
+  document.getElementById("exported-size").innerText = exportedList;
 }
 
 // ! populate word list
@@ -201,6 +204,22 @@ async function populateTrash() {
   );
 }
 
+async function populateExported() {
+  await populateWordlist(
+    await db.getExportedList(),
+    async (node, stemObj) => {
+      node.remove();
+      await db.removeFromExportedList(stemObj.stem);
+      await db.addToKnownList(stemObj.stem);
+    },
+    async (node, stemObj) => {
+      node.remove();
+      await db.removeFromExportedList(stemObj.stem);
+      await db.addToUnknownList(stemObj.stem);
+    }
+  );
+}
+
 // ! navigation handling
 document.getElementById("inbox-nav").addEventListener("click", async (e) => {
   if (!navigate(e)) {
@@ -228,6 +247,13 @@ document.getElementById("trash-nav").addEventListener("click", async (e) => {
     return;
   }
   await populateTrash();
+});
+
+document.getElementById("exported-nav").addEventListener("click", async (e) => {
+  if (!navigate(e)) {
+    return;
+  }
+  await populateExported();
 });
 
 // ! overlay stuff
