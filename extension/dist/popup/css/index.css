@@ -139,6 +139,24 @@ body {
   background-color: #ccff99;
 }
 
+/* ! the export button */
+
+#export-button {
+  margin-top: 5px;
+  flex: 0 0 40px;
+
+  border-radius: 8px;
+  background-color: #ff5353;
+  cursor: pointer;
+
+  color: #ffffff;
+  font-size: medium;
+}
+
+#export-button:hover {
+  background-color: #ff3c3c;
+}
+
 /* ! the overlay */
 
 #overlay {
