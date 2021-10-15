@@ -223,40 +223,40 @@ document.getElementById("inbox-nav").addEventListener("click", async (e) => {
   if (!navigate(e)) {
     return;
   }
-  hideExportButton();
   await populateInbox();
+  hideExportButton();
 });
 
 document.getElementById("unknown-nav").addEventListener("click", async (e) => {
   if (!navigate(e)) {
     return;
   }
-  showExportButton();
   await populateUnknown();
+  showExportButton();
 });
 
 document.getElementById("known-nav").addEventListener("click", async (e) => {
   if (!navigate(e)) {
     return;
   }
-  hideExportButton();
   await populateKnown();
+  hideExportButton();
 });
 
 document.getElementById("trash-nav").addEventListener("click", async (e) => {
   if (!navigate(e)) {
     return;
   }
-  hideExportButton();
   await populateTrash();
+  hideExportButton();
 });
 
 document.getElementById("exported-nav").addEventListener("click", async (e) => {
   if (!navigate(e)) {
     return;
   }
-  hideExportButton();
   await populateExported();
+  hideExportButton();
 });
 
 // ! export button
