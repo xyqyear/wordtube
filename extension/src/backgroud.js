@@ -39,8 +39,6 @@ async function updateBadgeText() {
   chrome.action.setBadgeText({ text: inbox.length.toString() });
 }
 
-updateBadgeText();
-
 chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
   if (isEmptyObject(request.caption)) {
     return;
@@ -135,3 +133,6 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
   // stupid javascript
   await chromeDB.set({ [videoID]: [title, author, parsedCaption] });
 });
+
+chrome.action.setBadgeBackgroundColor({ color: "#bfa2db" });
+updateBadgeText();
