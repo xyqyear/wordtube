@@ -2,12 +2,18 @@ const natural = require("natural");
 const stem = natural.PorterStemmer.stem;
 const tokenizer = new natural.TreebankWordTokenizer();
 
+// since background.js and popup/index.js run in entirely different environments
+// it's complicated to reuse code used by popup/index.js
 class chromeDBProto {
   // await get("a", "b", ...) => {a: ..., b: ..., ...}
   async get(...keys) {
     return await new Promise((resolve, reject) =>
       chrome.storage.local.get(keys, (result) => resolve(result))
     );
+  }
+
+  async getSingle(key) {
+    return (await this.get(key))[key];
   }
 
   // await set({"a": ..., "b":..., ...})
@@ -35,11 +41,12 @@ function isEmptyObject(o) {
 }
 
 async function updateBadgeText() {
-  const inbox = (await chromeDB.get("wordlist.inbox"))["wordlist.inbox"] || [];
+  const inbox = (await chromeDB.getSingle("wordlist.inbox")) || [];
   chrome.action.setBadgeText({ text: inbox.length.toString() });
 }
 
 chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
+  // if no caption avaliable for this video
   if (isEmptyObject(request.caption)) {
     return;
   }
@@ -54,9 +61,14 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     return;
   }
 
-  // ! parse caption from youtube
-  let parsedCaption = {};
+  // * parse caption from youtube
 
+  // basically what this massive loop does is
+  // separating tokens from transdcript and timestamp them separately.
+  // if the whole line has only one timestamp in the transcript (usually manual transcripts)
+  // we assign the timestamp of the line to the first token,
+  // and for the rest of tokens we increase the timestamp by 1 ms each time.
+  let parsedCaption = {};
   for (const event of caption.events) {
     if ("segs" in event) {
       const timeBase = event.tStartMs;
@@ -91,25 +103,29 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
       .map((a) => [stem(a), a])
   );
 
-  // if the stem doesn't exist in database or is in trash list
-  const existingStems = await chromeDB.get(...Object.keys(stem2word));
-  const inTrashStems =
-    (await chromeDB.get("wordlist.trash"))["wordlist.trash"] || [];
+  // ! MOVE TO index.js for updating trash can
+  // // if the exsiting stem is in trash, then update the stem info and move to inbox
+  // const inTrashStems = (await chromeDB.getSingle("wordlist.trash")) || [];
+  // const newTrashcan = [];
+  // for (const trashStem of inTrashStems) {
+  //   if (trashStem in existingStems) {
+  //     delete existingStems[trashStem];
+  //   } else {
+  //     newTrashcan.push(trashStem);
+  //   }
+  // }
+  // // update trashcan
+  // await chromeDB.set({ "wordlist.trash": newTrashcan });
 
-  // if the exsiting stem is in trash, then update the stem info and move to inbox
-  const newTrashcan = [];
+  // * save the info of stems not in database or in trash
+
+  const existingStems = await chromeDB.get(...Object.keys(stem2word));
+  const inTrashStems = (await chromeDB.getSingle("wordlist.trash")) || [];
   for (const trashStem of inTrashStems) {
     if (trashStem in existingStems) {
       delete existingStems[trashStem];
-    } else {
-      newTrashcan.push(trashStem);
     }
   }
-  // update trashcan
-  await chromeDB.set({ "wordlist.trash": newTrashcan });
-
-  // ! populate non exsiting stem info
-  // including stem, word, videoID and timestamp(in video)
   let nonExistingStemInfo = {};
   for (const stem in stem2word) {
     if (!(stem in existingStems)) {
@@ -119,19 +135,26 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     }
   }
 
-  // ! save the stem info to database
-  await chromeDB.set(nonExistingStemInfo);
+  // ! MOVE TO index.js
+  // // * save the stem info to database
+  // await chromeDB.set(nonExistingStemInfo);
 
-  // ! send the stems to inbox
-  const inbox = (await chromeDB.get("wordlist.inbox"))["wordlist.inbox"] || [];
-  await chromeDB.set({
-    "wordlist.inbox": inbox.concat(Object.keys(nonExistingStemInfo)),
-  });
-  await updateBadgeText();
+  // ! MOVE TO index.js
+  // // * send the stems to inbox
+  // const inbox = (await chromeDB.getSingle("wordlist.inbox")) || [];
+  // await chromeDB.set({
+  //   "wordlist.inbox": inbox.concat(Object.keys(nonExistingStemInfo)),
+  // });
+  // await updateBadgeText();
 
-  // ! save the source
+  // * save the source
   // stupid javascript
   await chromeDB.set({ [videoID]: [title, author, parsedCaption] });
+
+  // * add video to incoming.videos
+  let videoInbox = (await chromeDB.getSingle("incoming.videos")) || {};
+  videoInbox[videoID] = nonExistingStemInfo;
+  await chromeDB.set({ "incoming.videos": videoInbox });
 });
 
 chrome.action.setBadgeBackgroundColor({ color: "#bfa2db" });
