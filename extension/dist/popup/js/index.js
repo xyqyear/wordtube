@@ -34,6 +34,8 @@ async function updateNavNumber() {
 
   const exportedList = (await db.getExportedList()).length || 0;
   document.getElementById("exported-size").innerText = exportedList;
+
+  chrome.action.setBadgeText({ text: inboxSize.toString() });
 }
 
 // ! populate word list

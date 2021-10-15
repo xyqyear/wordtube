@@ -34,6 +34,13 @@ function isEmptyObject(o) {
   return true;
 }
 
+async function updateBadgeText() {
+  const inbox = (await chromeDB.get("wordlist.inbox"))["wordlist.inbox"] || [];
+  chrome.action.setBadgeText({ text: inbox.length.toString() });
+}
+
+updateBadgeText();
+
 chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
   if (isEmptyObject(request.caption)) {
     return;
@@ -122,6 +129,7 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
   await chromeDB.set({
     "wordlist.inbox": inbox.concat(Object.keys(nonExistingStemInfo)),
   });
+  await updateBadgeText();
 
   // ! save the source
   // stupid javascript
