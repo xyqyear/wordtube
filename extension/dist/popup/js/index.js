@@ -265,6 +265,7 @@ document.getElementById("export-button").addEventListener("click", async () => {
   const exportText = await exportStems(stemObjList);
   await downloadText(exportText, "export.txt");
   // TODO: only move stems to exported list when download finishes
+  const stems = stemObjList.map((i) => i.stem);
   await db.removeFromUnknownList(...stems);
   await db.addToExportedList(...stems);
   await updateNavNumber();
