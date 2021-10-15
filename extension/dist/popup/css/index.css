@@ -48,6 +48,7 @@ body {
 
 #topnav > div.nav-active {
   background-color: #bfa2db;
+  cursor: default;
 }
 
 .nav-text {
