@@ -6,6 +6,10 @@ class chromeDBProto {
     );
   }
 
+  async getSingle(key) {
+    return (await this.get(key))[key];
+  }
+
   // await set({"a": ..., "b":..., ...})
   async set(pairs) {
     return await new Promise((resolve, reject) =>
@@ -43,7 +47,7 @@ class DB {
   source: [title, author, caption]
   */
   async ensureDataVersion() {
-    if (!(await chromeDB.get("dataVersion")["dataVersion"])) {
+    if (!(await chromeDB.getSingle("dataVersion"))) {
       await chromeDB.set({ dataVersion: 1 });
     }
   }
@@ -79,17 +83,17 @@ class DB {
   }
 
   async _append(key, ...value) {
-    let oldValue = (await chromeDB.get(key))[key] || [];
+    let oldValue = (await chromeDB.getSingle(key)) || [];
     await chromeDB.set({ [key]: oldValue.concat(value) });
   }
 
   async _prepend(key, ...value) {
-    let oldValue = (await chromeDB.get(key))[key] || [];
+    let oldValue = (await chromeDB.getSingle(key)) || [];
     await chromeDB.set({ [key]: value.concat(oldValue) });
   }
 
   async _remove(key, ...value) {
-    let oldValue = (await chromeDB.get(key))[key] || [];
+    let oldValue = (await chromeDB.getSingle(key)) || [];
     for (const i of value) {
       const index = oldValue.indexOf(i);
       if (index > -1) {
@@ -97,6 +101,58 @@ class DB {
       }
     }
     await chromeDB.set({ [key]: oldValue });
+  }
+
+  async getIncomingVideos() {
+    return await chromeDB.getSingle("incoming.videos");
+  }
+
+  async rejectIncomingVideo(videoID) {
+    // remove from incoming list
+    let incomingVideos = await chromeDB.getSingle("incoming.videos");
+    delete incomingVideos[videoID];
+    await chromeDB.set({ "incoming.videos": incomingVideos });
+
+    // remove video info from database
+    await chromeDB.remove(videoID);
+  }
+
+  async approveIncomingVideo(videoID) {
+    // * get and remove video stems from list
+    let incomingVideos = await chromeDB.getSingle("incoming.videos");
+    // ! using raw database specification
+    let stemInfo = incomingVideos[videoID];
+    delete incomingVideos[videoID];
+    await chromeDB.set({ "incoming.videos": incomingVideos });
+
+    // * remove words that are already in database nad not in trash can
+    const existingStems = await chromeDB.get(...stemInfo.stems);
+    const inTrashStems = (await chromeDB.getSingle("wordlist.trash")) || [];
+    let newTrashcan = [];
+    for (const trashStem of inTrashStems) {
+      if (trashStem in existingStems) {
+        delete existingStems[trashStem];
+      } else {
+        newTrashcan.push(trashStem);
+      }
+    }
+    await chromeDB.set({ "wordlist.trash": newTrashcan });
+
+    let nonExistingStemInfo = {};
+    for (const stem of stemInfo.stems) {
+      if (!(stem in existingStems)) {
+        nonExistingStemInfo[stem] = stemInfo.info[stem];
+      }
+    }
+
+    // * add non existing stem info to database
+    await chromeDB.set(nonExistingStemInfo);
+
+    // * send the stems to inbox
+    const inbox = (await chromeDB.getSingle("wordlist.inbox")) || [];
+    await chromeDB.set({
+      "wordlist.inbox": inbox.concat(Object.keys(nonExistingStemInfo)),
+    });
   }
 
   // await getInboxList() => ["a", "b", ...]
@@ -161,8 +217,8 @@ class DB {
     await this._remove("wordlist.exported", ...stems);
   }
 
-  async _getVideoInfo(videoID) {
-    const rawVideoInfo = (await chromeDB.get(videoID))[videoID];
+  async getVideoInfo(videoID) {
+    const rawVideoInfo = await chromeDB.getSingle(videoID);
     return {
       title: rawVideoInfo[0],
       author: rawVideoInfo[1],
@@ -171,7 +227,7 @@ class DB {
   }
 
   async getContext(videoID, timestamp, radius) {
-    const videoInfo = await this._getVideoInfo(videoID);
+    const videoInfo = await this.getVideoInfo(videoID);
 
     const index = Object.keys(videoInfo.caption).indexOf(timestamp);
     const captionLength = Object.keys(videoInfo.caption).length;

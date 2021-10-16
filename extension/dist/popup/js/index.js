@@ -4,7 +4,8 @@ import { downloadText, exportStems } from "./utils/exporting.js";
 
 const wordlistItemTemplate = document.querySelector("#wordlist-item-template");
 
-// ! change the navigation bar
+// * change the navigation bar
+
 // not navigating to the actual page
 // return false if dont need to navigate
 function navigate(e) {
@@ -12,9 +13,7 @@ function navigate(e) {
   if (e.currentTarget.classList.contains("nav-active")) {
     return false;
   }
-  document
-    .getElementsByClassName("nav-active")[0]
-    .classList.remove("nav-active");
+  document.querySelector(".nav-active").classList.remove("nav-active");
   e.currentTarget.classList.add("nav-active");
   return true;
 }
@@ -38,7 +37,8 @@ async function updateNavNumber() {
   chrome.action.setBadgeText({ text: inboxSize.toString() });
 }
 
-// ! populate word list
+// * populate word list
+
 async function populateWordlist(
   StemArray,
   knownHander,
@@ -49,13 +49,15 @@ async function populateWordlist(
   wordlist.innerHTML = "";
 
   for (const stemObj of StemArray) {
-    // ! insert list item
+    // * insert list item
+
     let node = wordlistItemTemplate.cloneNode(true);
     node.removeAttribute("id");
-    node.getElementsByClassName("list-item-word")[0].innerText = stemObj.word;
+    node.querySelector(".list-item-word").innerText = stemObj.word;
     wordlist.appendChild(node);
 
-    // ! show context popup when click
+    // * show context popup when click
+
     node.addEventListener("click", async () => {
       const context = await db.getContext(
         stemObj.source,
@@ -63,7 +65,8 @@ async function populateWordlist(
         30
       );
 
-      // ! show source
+      // * show source
+
       let wordSourceElement = document.getElementById("word-source");
       wordSourceElement.innerText = `${context.author} - ${context.title}`;
       wordSourceElement.href = assembleYoutube(
@@ -71,12 +74,14 @@ async function populateWordlist(
         stemObj.timestamp
       );
 
-      // ! show the google dictionary link
+      // * show the google dictionary link
+
       let dictLink = document.getElementById("dict-link");
       dictLink.innerText = `Google search - define ${stemObj.word}`;
       dictLink.href = `https://www.google.com/search?q=define%20${stemObj.word}`;
 
-      // ! show context text
+      // * show context text
+
       document.getElementById("word-context").innerHTML = assembleContext(
         context.context,
         stemObj.timestamp
@@ -85,7 +90,8 @@ async function populateWordlist(
       document.getElementById("overlay").classList.remove("hidden");
     });
 
-    // ! button handling
+    // * button handling
+
     // if knownHander is not passed in, hide the button
     // otherwise bind the click event to the handler
     const knownButton = node.getElementsByClassName("known-button")[0];
@@ -123,16 +129,57 @@ async function populateWordlist(
   }
 }
 
-// ! export button
-function hideExportButton() {
-  document.getElementById("export-button").classList.add("hidden");
+// * incoming video list stuff
+
+async function populateIncomingVideosList() {
+  const incomingVideosElement = document.getElementById("incoming-videos");
+  incomingVideosElement.innerHTML = "";
+  const incomingVideosItemTemplate = document.getElementById(
+    "incoming-videos-item-template"
+  );
+
+  const incomingVideos = await db.getIncomingVideos();
+  for (const videoID in incomingVideos) {
+    // only use title for now
+    const videoInfo = await db.getVideoInfo(videoID);
+
+    // * insert list item
+
+    let node = incomingVideosItemTemplate.cloneNode(true);
+    node.removeAttribute("id");
+    const titleElement = node.querySelector(".incoming-vidoes-title");
+    titleElement.innerText = videoInfo.title;
+    titleElement.href = assembleYoutube(videoID);
+    incomingVideosElement.appendChild(node);
+
+    // * add listeners to buttons
+
+    node.querySelector(".reject-button").addEventListener("click", async () => {
+      node.remove();
+      await db.rejectIncomingVideo(videoID);
+    });
+
+    node
+      .querySelector(".approve-button")
+      .addEventListener("click", async () => {
+        node.remove();
+        await db.approveIncomingVideo(videoID);
+        await populateInbox();
+        await updateNavNumber();
+      });
+  }
 }
 
-function showExportButton() {
-  document.getElementById("export-button").classList.remove("hidden");
+function hideElement(selector) {
+  document.querySelector(selector).classList.add("hidden");
 }
 
-// ! navigation bar bindings
+function showElement(selector) {
+  document.querySelector(selector).classList.remove("hidden");
+}
+
+// * navigation bar bindings
+
 async function populateInbox() {
   await populateWordlist(
     await db.getInboxList(),
@@ -220,13 +267,16 @@ async function populateExported() {
   );
 }
 
-// ! navigation handling
+// * navigation handling
+
 document.getElementById("inbox-nav").addEventListener("click", async (e) => {
   if (!navigate(e)) {
     return;
   }
   await populateInbox();
-  hideExportButton();
+  await populateIncomingVideosList();
+  hideElement("#export-button");
+  showElement("#incoming-videos");
 });
 
 document.getElementById("unknown-nav").addEventListener("click", async (e) => {
@@ -234,7 +284,8 @@ document.getElementById("unknown-nav").addEventListener("click", async (e) => {
     return;
   }
   await populateUnknown();
-  showExportButton();
+  showElement("#export-button");
+  hideElement("#incoming-videos");
 });
 
 document.getElementById("known-nav").addEventListener("click", async (e) => {
@@ -242,7 +293,8 @@ document.getElementById("known-nav").addEventListener("click", async (e) => {
     return;
   }
   await populateKnown();
-  hideExportButton();
+  hideElement("#export-button");
+  hideElement("#incoming-videos");
 });
 
 document.getElementById("trash-nav").addEventListener("click", async (e) => {
@@ -250,7 +302,8 @@ document.getElementById("trash-nav").addEventListener("click", async (e) => {
     return;
   }
   await populateTrash();
-  hideExportButton();
+  hideElement("#export-button");
+  hideElement("#incoming-videos");
 });
 
 document.getElementById("exported-nav").addEventListener("click", async (e) => {
@@ -258,10 +311,12 @@ document.getElementById("exported-nav").addEventListener("click", async (e) => {
     return;
   }
   await populateExported();
-  hideExportButton();
+  hideElement("#export-button");
+  hideElement("#incoming-videos");
 });
 
-// ! export button
+// * export button
+
 document.getElementById("export-button").addEventListener("click", async () => {
   const stemObjList = await db.getUnknownList();
   const exportText = await exportStems(stemObjList);
@@ -274,7 +329,8 @@ document.getElementById("export-button").addEventListener("click", async () => {
   await populateUnknown();
 });
 
-// ! overlay stuff
+// * overlay stuff
+
 document.getElementById("overlay").addEventListener("click", (e) => {
   e.target.classList.add("hidden");
 });
@@ -285,3 +341,4 @@ document.getElementById("word-info").addEventListener("click", (e) => {
 
 updateNavNumber();
 populateInbox();
+populateIncomingVideosList();

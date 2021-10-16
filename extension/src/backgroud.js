@@ -103,22 +103,11 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
       .map((a) => [stem(a), a])
   );
 
-  // ! MOVE TO index.js for updating trash can
-  // // if the exsiting stem is in trash, then update the stem info and move to inbox
-  // const inTrashStems = (await chromeDB.getSingle("wordlist.trash")) || [];
-  // const newTrashcan = [];
-  // for (const trashStem of inTrashStems) {
-  //   if (trashStem in existingStems) {
-  //     delete existingStems[trashStem];
-  //   } else {
-  //     newTrashcan.push(trashStem);
-  //   }
-  // }
-  // // update trashcan
-  // await chromeDB.set({ "wordlist.trash": newTrashcan });
-
   // * save the info of stems not in database or in trash
-
+  // this only roughly decide which ones are new word
+  // we need to sift through them again when approving the video
+  // because after approving one video
+  // the rest in the list become invalid
   const existingStems = await chromeDB.get(...Object.keys(stem2word));
   const inTrashStems = (await chromeDB.getSingle("wordlist.trash")) || [];
   for (const trashStem of inTrashStems) {
@@ -135,26 +124,18 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     }
   }
 
-  // ! MOVE TO index.js
-  // // * save the stem info to database
-  // await chromeDB.set(nonExistingStemInfo);
-
-  // ! MOVE TO index.js
-  // // * send the stems to inbox
-  // const inbox = (await chromeDB.getSingle("wordlist.inbox")) || [];
-  // await chromeDB.set({
-  //   "wordlist.inbox": inbox.concat(Object.keys(nonExistingStemInfo)),
-  // });
-  // await updateBadgeText();
-
   // * save the source
   // stupid javascript
   await chromeDB.set({ [videoID]: [title, author, parsedCaption] });
 
   // * add video to incoming.videos
-  let videoInbox = (await chromeDB.getSingle("incoming.videos")) || {};
-  videoInbox[videoID] = nonExistingStemInfo;
-  await chromeDB.set({ "incoming.videos": videoInbox });
+  let incomingVideos = (await chromeDB.getSingle("incoming.videos")) || {};
+  // the stems list is used to preserve the order of incoming stems
+  incomingVideos[videoID] = {
+    stems: Object.keys(nonExistingStemInfo),
+    info: nonExistingStemInfo,
+  };
+  await chromeDB.set({ "incoming.videos": incomingVideos });
 });
 
 chrome.action.setBadgeBackgroundColor({ color: "#bfa2db" });

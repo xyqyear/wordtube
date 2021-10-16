@@ -172,21 +172,21 @@ body {
   white-space: nowrap;
 }
 
-.keep-button {
+.approve-button {
   margin-right: 4px;
   background-color: #d8ffb1;
 }
 
-.keep-button:hover {
+.approve-button:hover {
   background-color: #ccff99;
 }
 
-.delete-button {
+.reject-button {
   margin-right: 4px;
   background-color: #ffd0d0;
 }
 
-.delete-button:hover {
+.reject-button:hover {
   background-color: #ffc4c4;
 }
 

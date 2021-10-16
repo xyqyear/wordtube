@@ -1,8 +1,10 @@
 function assembleYoutube(videoID, timestamp) {
-  const startTime = timestamp / 1000 - 4;
-  return `https://www.youtube.com/watch?v=${videoID}&t=${Math.floor(
-    startTime > 0 ? startTime : 0
-  )}s`;
+  let baseLink = `https://www.youtube.com/watch?v=${videoID}`;
+  if (timestamp) {
+    const startTime = timestamp / 1000 - 4;
+    return `${baseLink}&t=${Math.floor(startTime > 0 ? startTime : 0)}s`;
+  }
+  return baseLink;
 }
 
 function assembleContext(context, timestamp) {
