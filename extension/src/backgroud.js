@@ -100,7 +100,7 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
   const stem2word = Object.fromEntries(
     Object.keys(reversedCaption)
       .filter((a) => /^[a-zA-Z]+$/.test(a))
-      .map((a) => [stem(a), a])
+      .map((a) => [stem(a.toLowerCase()), a])
   );
 
   // * save the info of stems not in database or in trash
