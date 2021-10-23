@@ -319,7 +319,9 @@ document.getElementById("exported-nav").addEventListener("click", async (e) => {
 
 document.getElementById("export-button").addEventListener("click", async () => {
   const stemObjList = await db.getUnknownList();
-  const exportText = await exportStems(stemObjList);
+  // so that the newest is on the bottom
+  const reversedStemObjList = stemObjList.slice().reverse();
+  const exportText = await exportStems(reversedStemObjList);
   await downloadText(exportText, "export.txt");
   // TODO: only move stems to exported list when download finishes
   const stems = stemObjList.map((i) => i.stem);
