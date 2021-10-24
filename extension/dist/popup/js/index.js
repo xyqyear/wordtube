@@ -263,6 +263,11 @@ async function populateExported() {
       node.remove();
       await db.removeFromExportedList(stemObj.stem);
       await db.addToUnknownList(stemObj.stem);
+    },
+    async (node, stemObj) => {
+      node.remove();
+      await db.removeFromExportedList(stemObj.stem);
+      await db.addToTrashList(stemObj.stem);
     }
   );
 }
