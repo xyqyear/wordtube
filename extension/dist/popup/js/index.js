@@ -179,6 +179,7 @@ function showElement(selector) {
 }
 
 // * navigation bar bindings
+// * this also affects which button appears on the list item
 
 async function populateInbox() {
   await populateWordlist(
