@@ -14,7 +14,7 @@ function assembleContext(context, timestamp) {
     if (t == timestamp) {
       contextHTML += ` <span class="context-highlight">${word}</span>`;
     } else {
-      if (!word.startsWith("'")) {
+      if (!/^('.*|n't)$/.test(word)) {
         contextHTML += " ";
       }
       contextHTML += word;
