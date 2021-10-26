@@ -7,4 +7,5 @@ extension/dist.crx
 
 reference/
 
-*.csv
+tool/excel2anki/*.csv
+tool/excel2anki/wordtube/

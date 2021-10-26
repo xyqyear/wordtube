@@ -1,9 +1,9 @@
-from numpy import true_divide
 import pandas as pd
 import argparse
 import requests
 import base64
 import csv
+import os
 
 from requests.sessions import HTTPAdapter
 from urllib3.util.retry import Retry
@@ -28,13 +28,19 @@ def process_rows(df: pd.DataFrame) -> pd.DataFrame:
     # if image exists, then convert them to multiple img tags separated by <br>
     # make the link a tag
     for _, row in df.iterrows():
-        row.word = row.word.replace("\n", "<br>")
+        row["original form"] = row["original form"].replace("\n", "<br>")
         if pd.notna(row.note):
             row.note = row.note.replace("\n", "<br>")
 
         if pd.notna(row.images):
+            image_files = []
+            for i, image_url in enumerate(row.images.split("\n")):
+                image_file_name = download_image(
+                    image_url, f'wordtube_{row["original form"]}_{i}'
+                )
+                image_files.append(image_file_name)
             row.images = "<br>".join(
-                f'<img src="{image_url2data_uri(i)}"' for i in row.images.split("\n")
+                f'<img src="{image_file_name}">' for image_file_name in image_files
             )
 
         row["video link"] = f'<a href="{row["video link"]}">{row["video link"]}</a>'
@@ -42,17 +48,21 @@ def process_rows(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def download_image_as_data_uri(image_url: str) -> str:
-    response = session.get(image_url)
-    content_type = response.headers["Content-Type"]
-    return f"data:{content_type};base64,{base64.b64encode(response.content).decode()}"
-
-
-def image_url2data_uri(image_url: str) -> str:
+def download_image(image_url: str, file_name_prefix: str) -> str:
     if image_url.startswith("data:image"):
-        return image_url
+        image_extension = image_url.split("/")[1].split(";")[0]
+        image_content = base64.b64decode(image_url.split(",")[1])
     else:
-        return download_image_as_data_uri(image_url)
+        response = session.get(image_url)
+        content_type = response.headers["Content-Type"]
+        image_extension = content_type.split("/")[1]
+        image_content = response.content
+
+    image_file_name = f"{file_name_prefix}.{image_extension}"
+    with open(os.path.join("wordtube", image_file_name), "wb") as f:
+        f.write(image_content)
+
+    return image_file_name
 
 
 def main():
