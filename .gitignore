@@ -6,3 +6,5 @@ extension/dist.pem
 extension/dist.crx
 
 reference/
+
+*.csv
